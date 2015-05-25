@@ -22,6 +22,7 @@ function upScheDetail(obj){
         $("#detailIndex").empty().append(loadImg);
             
         var urlPath = "upload.html";
+        var urlPath = "http://www.baidu.com";
         $.ajaxFileUpload({
             url: urlPath, //需要链接到服务器地址
             secureuri: false,
