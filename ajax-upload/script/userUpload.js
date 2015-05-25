@@ -21,7 +21,6 @@ function upScheDetail(obj){
         var loadImg = "<a href='javascript:;' id='loadImg' class='load_img'><img src='images/o_31.gif' width='20' height='20' /></a>";
         $("#detailIndex").empty().append(loadImg);
             
-        var urlPath = "upload.html";
         var urlPath = "http://www.baidu.com";
         $.ajaxFileUpload({
             url: urlPath, //需要链接到服务器地址
