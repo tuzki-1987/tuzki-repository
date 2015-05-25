@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HighCharts 应用实践</title>
+    <meta name="keywords" content="HighCharts 应用实践" />
+	<meta name="description" content="HighCharts 应用实践" />
+    <link type="text/css" rel="stylesheet" href="style/public.css" />
+    <link type="text/css" rel="stylesheet" href="style/table.css" />
+    <script type="text/javascript" src="script/jquery-1.7.2.min.js"></script>
+
+	<script type="text/javascript" src="script/My97DatePicker/WdatePicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="script/My97DatePicker/skin/WdatePicker.css" />
+	<script type="text/javascript" src="script/cinemaMngCtrl.js"></script>
+	<script type="text/javascript" src="script/box_office_suc/box_office_suc.js"></script>
+</head>
+<body class="nobg">
+	<div class="gzt_warp">
+    	<div class="gzt_con">
+        	<div class="sub_nav">
+            	<ul>
+                	<li><span>选项卡 1 内容</span><img src="images/jiantou_03.png"/></li>
+                	<li><a href="javascript:;">选项卡 2 内容</a></li>
+                	<li><a href="javascript:;">Highcharts 实践</a></li>
+                </ul>
+                <div id="mtSubMenu" class="mt_sub_menu">
+                	<div id="mtOneDay" class="mt_sub_menu_cmn">
+                		<h3>单日排片</h3>
+                		<a href="javascript:;" name="">昨天&nbsp;&nbsp;<span class="outDateShow"></span></a>
+                		<a href="javascript:;" name="" class="active">今天&nbsp;&nbsp;<span class="outDateShow"></span></a>
+                		<a href="javascript:;" name="">明天&nbsp;&nbsp;<span class="outDateShow"></span></a>
+                		<input id="mtOneDaySltDate" type="text" name="sltDate" class="Wdate mtOneDaySltDate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, onpicked:WdatePickedFunc})" />
+                	</div>
+                	<div id="mtTimeCycle" class="mt_sub_menu_cmn">
+                		<h3>分时排片</h3>
+                		<a href="javascript:;" class="active" name="mtAllTimeCycle">全时段</a>
+                		<a href="javascript:;" name="mtGoldTimeCycle">黄金时段</a>
+                	</div>
+                	<div id="mtShowDataKinds" class="mt_sub_menu_cmn">
+                		<h3>数据展示</h3>
+                		<a href="javascript:;" name="mtSetFilmRate">排片率</a>
+                		<a href="javascript:;" class="active" name="mtTicketTotal">场次数</a>
+                		<a href="javascript:;" name="mtTicketRate">票房占比</a>
+                	</div>
+                </div>
+            </div>
+            <div class="gzt_tab" id="gzt_show">
+            	票房成绩模块内容
+            	<script type="text/javascript">$("#gzt_show").load("boxoffice/box_office_report.html");</script>
+            </div>
+        </div>
+	</div>
+    
+    <!--  return top  -->
+<div id="addmyplan" class="fixedRight">
+	<a href="javaScript:void(0);" title="返回顶部" class="toTop" style="display: block;">回到顶部</a>
+</div>
+</body>
+</html>
+
+
+
