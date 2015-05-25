@@ -1,16 +1,16 @@
-×î½ü¹¤×÷ÖĞÓĞÓÃµ½Òì²½ÉÏ´«µÄ²¿·Ö£¬ÔÚÍøÉÏÕÒÁËajaxupload.js×öµÄ£¬Ê¹ÓÃÖĞÓöµ½ÁË¼¸¸öÎÊÌâ£¬ÆäÖĞ×î¾À½áµÄÒ»¸öÊÇºóÌ¨·µ»Øjson´®ºó£¬IEÄ¬ÈÏÏÂÔØµÄÎÊÌâ¡£
-ÏÖÔÚ°ÑÕâ¼¸¸öÎÊÌâ¼°½â¾ö°ì·¨×Ü½áÈçÏÂ£º
+æœ€è¿‘å·¥ä½œä¸­æœ‰ç”¨åˆ°å¼‚æ­¥ä¸Šä¼ çš„éƒ¨åˆ†ï¼Œåœ¨ç½‘ä¸Šæ‰¾äº†ajaxupload.jsåšçš„ï¼Œä½¿ç”¨ä¸­é‡åˆ°äº†å‡ ä¸ªé—®é¢˜ï¼Œå…¶ä¸­æœ€çº ç»“çš„ä¸€ä¸ªæ˜¯åå°è¿”å›jsonä¸²åï¼ŒIEé»˜è®¤ä¸‹è½½çš„é—®é¢˜ã€‚
+ç°åœ¨æŠŠè¿™å‡ ä¸ªé—®é¢˜åŠè§£å†³åŠæ³•æ€»ç»“å¦‚ä¸‹ï¼š
 
-Æ½Ì¨£ºwin8
-¿ª·¢»·¾³£ºStruts2¡¢Spring¡¢mybatis£¬Maven£¬Tomcat
-ÉÏ´«×é¼ş£ºajaxFileUpload.js
-³öÏÖµÄÎÊÌâ£º
-1¡¢ÔËĞĞÊ±£¬±¨jQuery.handleError is not a function
-2¡¢ÎŞÂÛÉÏ´«³É¹¦Ê§°Ü£¬×ÜÊÇÖ´ĞĞerror·½·¨£¬²»Ö´ĞĞsuccess·½·¨
-3¡¢IE ×ÜÊÇÄ¬ÈÏÏÂÔØ·µ»ØµÄjson´®
+å¹³å°ï¼šwin8
+å¼€å‘ç¯å¢ƒï¼šStruts2ã€Springã€mybatisï¼ŒMavenï¼ŒTomcat
+ä¸Šä¼ ç»„ä»¶ï¼šajaxFileUpload.js
+å‡ºç°çš„é—®é¢˜ï¼š
+1ã€è¿è¡Œæ—¶ï¼ŒæŠ¥jQuery.handleError is not a function
+2ã€æ— è®ºä¸Šä¼ æˆåŠŸå¤±è´¥ï¼Œæ€»æ˜¯æ‰§è¡Œerroræ–¹æ³•ï¼Œä¸æ‰§è¡Œsuccessæ–¹æ³•
+3ã€IE æ€»æ˜¯é»˜è®¤ä¸‹è½½è¿”å›çš„jsonä¸²
 
-½â¾ö·½·¨£º
-1¡¢ÔÚajaxFileUpload.jsÖĞÌí¼ÓhandleError·½·¨
+è§£å†³æ–¹æ³•ï¼š
+1ã€åœ¨ajaxFileUpload.jsä¸­æ·»åŠ handleErroræ–¹æ³•
 handleError : function(s, xhr, status, e) {
 	// If a local callback was specified, fire it
 	if (s.error) {
@@ -23,11 +23,11 @@ handleError : function(s, xhr, status, e) {
 	}
 }
 
-2¡¢ÔÚFirefoxÏÂ¸ú×Ù·¢ÏÖ£¬ÔÚÖ´ĞĞµ½ var data = jQuery.uploadHttpData(xml, s.dataType); ÕâÒ»¾äÊ±£¬ºóĞø²»ÔÙÖ´ĞĞ£¬Ö±½Ó×ªµ½ÁËcatchÀï¡£
-uploadHttpData ·½·¨ÊÇ´¦ÀíºÍ·µ»ØÓÉºóÌ¨´«»ØÀ´µÄÊı¾İµÄ£¬´¦ÀíÁË3ÖÖ¸ñÊ½£ºscript¡¢json¡¢html£¬ËùÒÔÇ°Ì¨µ÷ÓÃ ajaxFileUpload Ê±£¬ĞèÖ¸Ã÷dataType£»
-²¢ÇÒ´¦ÀíjsonÊı¾İµÄ·½Ê½Ò²ÓĞÎÊÌâ£¬½áºÏÎÒµÄÇé¿ö£¬°ÑÔ´Âë½øĞĞÁËĞŞ¸Ä¡£
+2ã€åœ¨Firefoxä¸‹è·Ÿè¸ªå‘ç°ï¼Œåœ¨æ‰§è¡Œåˆ° var data = jQuery.uploadHttpData(xml, s.dataType); è¿™ä¸€å¥æ—¶ï¼Œåç»­ä¸å†æ‰§è¡Œï¼Œç›´æ¥è½¬åˆ°äº†catché‡Œã€‚
+uploadHttpData æ–¹æ³•æ˜¯å¤„ç†å’Œè¿”å›ç”±åå°ä¼ å›æ¥çš„æ•°æ®çš„ï¼Œå¤„ç†äº†3ç§æ ¼å¼ï¼šscriptã€jsonã€htmlï¼Œæ‰€ä»¥å‰å°è°ƒç”¨ ajaxFileUpload æ—¶ï¼Œéœ€æŒ‡æ˜dataTypeï¼›
+å¹¶ä¸”å¤„ç†jsonæ•°æ®çš„æ–¹å¼ä¹Ÿæœ‰é—®é¢˜ï¼Œç»“åˆæˆ‘çš„æƒ…å†µï¼ŒæŠŠæºç è¿›è¡Œäº†ä¿®æ”¹ã€‚
 
-3¡¢ºóÌ¨·µ»ØµÄjson´®£¬IE »áÄ¬ÈÏ½«Æä×÷ÎªÎÄ¼şÏÂÔØ¡£ÕâÀïºóÌ¨ÉèÖÃµÄ content-type ÊÇ application/json£¬½«Æä¸ÄÎª¡±text/plain¡°ºó£¬²âÊÔÍ¨¹ı¡£
+3ã€åå°è¿”å›çš„jsonä¸²ï¼ŒIE ä¼šé»˜è®¤å°†å…¶ä½œä¸ºæ–‡ä»¶ä¸‹è½½ã€‚è¿™é‡Œåå°è®¾ç½®çš„ content-type æ˜¯ application/jsonï¼Œå°†å…¶æ”¹ä¸ºâ€text/plainâ€œåï¼Œæµ‹è¯•é€šè¿‡ã€‚
 
-¡¾ÖØÒª¡¿4¡¢ºóÌ¨²¿·Ö
+ã€é‡è¦ã€‘4ã€åå°éƒ¨åˆ†
 response.setContentType("text/plain");
