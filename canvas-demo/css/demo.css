@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td
+	{
+	margin: 0;
+	padding: 0;
+}
+
+body,button,input,select,textarea {
+	font: 12px/1.5 "微软雅黑", "宋体", arial, tahoma, \5b8b\4f53, sans-serif;
+}
+
+img {
+	border: 0
+}
+
+.canvas-btn{
+	background: -webkit-linear-gradient(#fff, #eee);
+	background: -moz-linear-gradient(#fff, #eee);
+	background: -o-linear-gradient(#fff, #eee);
+	background: linear-gradient(#fff, #eee);
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #07637d;
+    display: block;
+    font-size: 1.2em;
+	height: 30px;
+    line-height: 30px;
+    margin: 20px auto 0;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+}
+
+/* 图片容器 */
+.image-container{
+	background-color: #fefefe;
+	border-color: #eee;
+	border-style: solid;
+	border-width: 1px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: none;
+	left: 50%;
+	margin-left: -380px;
+	padding: 20px 25px;
+	position: absolute;
+	text-align: center;
+	top: 110px;
+	width: 760px;
+	z-index: 100;
+}
+.image-container p.image-container-tip{
+	color: #999;
+    margin: -10px 0 10px;
+    position: relative;
+}
+.image-container p.image-container-tip span{
+	color: #f30;
+}
+.image-container a.image-close{
+	background: url("../images/xuanze03_03.png") no-repeat right center;
+	display: block;
+	float: right;
+	height: 30px;
+	margin: -53px -40px 0 0;
+	position: relative;
+	width: 30px;
+}
+.image-container a.image-close:hover{
+	color: #f30;
+	text-decoration: none;
+}
+.image-container .canvas-sch{
+	border: 1px solid #eee;
+	height: auto;
+	margin: 0 auto;
+    position: relative;
+    /*width: 100%;*/
+}
+.image-container a.down-canvas-btn{
+	background-color: #0099ff;
+    border-color: #0085dd;
+    border-style: solid;
+    border-width: 1px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    float: right;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: -44px;
+    margin-top: 15px;
+    position: absolute;
+    right: 0;
+    width: 40px;
+}
+/* 图片容器 */
+
+.zhezhao, .zhezhao2{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	z-index:999;
+	-moz-opacity:0.2;
+	opacity:0.2;
+	filter:alpha(opacity=20);
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>根据数据源动态绘制画布</title>
+  <meta name="keywords" content="万达, 万达计算机, 计算机辅助, 计算机排片, 计算机系统, 辅助排片, 排片系统" />
+  <meta name="description" content="计算机辅助排片系统" />
+  <link type="text/css" rel="stylesheet" href="css/demo.css" />
+
+  <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/canvas/canvas2image.js"></script>
+  <script type="text/javascript" src="js/canvas/create-canvas.js"></script>
+</head>
+<body class="nobg">
+  <a id="createImage" class="canvas-btn" href="javascript:;" onclick="startCanvas();">转换为图片</a>
+  <!-- 遮罩层 -->
+  <div id="zhezhao2" class="zhezhao2"></div>
+  <!-- 遮罩层 -->
+  <!-- 图片容器 -->
+  <div id="imageContainer" class="image-container">
+    <p class="image-container-tip"><span>提示: </span>[下载] 功能只支持 火狐、谷歌、360安全浏览器</p>
+    <a href="javascript:;" download="" id="down_canvas_image" class="down-canvas-btn">下载</a>
+    <a href="javascript:;" class="image-close" onclick="closeCanvas();"></a>
+    <canvas id="canvasSch" class="canvas-sch" width="380" height="600"></canvas>
+  </div>
+  <!-- 图片容器 -->
+</body>
+</html>
+
