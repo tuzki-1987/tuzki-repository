@@ -5,4 +5,5 @@
 
 现使用模拟数据，将功能独立摘取出来。使用时，结合页面结构，适时修改样式，统一数据即可。
 
-访问地址：http://htmlpreview.github.io/?https://github.com/tuzki-1987/tuzki-repository/blob/master/auto-prompt/my-page.html
+
+【访问地址】：http://htmlpreview.github.io/?https://github.com/tuzki-1987/tuzki-repository/blob/master/auto-prompt/my-page.html
