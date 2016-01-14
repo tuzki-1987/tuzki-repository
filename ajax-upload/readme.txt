@@ -32,4 +32,5 @@ uploadHttpData 方法是处理和返回由后台传回来的数据的，处理�
 【重要】4、后台部分
 response.setContentType("text/plain");
 
-访问地址：http://htmlpreview.github.io/?https://github.com/tuzki-1987/tuzki-repository/blob/master/ajax-upload/upload.html
+
+【访问地址】：http://htmlpreview.github.io/?https://github.com/tuzki-1987/tuzki-repository/blob/master/ajax-upload/upload.html
