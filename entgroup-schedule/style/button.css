@@ -1,0 +1,189 @@
+/**
+* 按钮样式文件
+**/
+
+/* 通用 */
+.btn-common{
+	border-style: solid;
+	border-width: 1px;
+}
+
+/* 所有圆角 */
+.btn-radius-all{
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	position: relative;
+    z-index: 2;	/* 该文件必须采用绝对路径 */
+	/*behavior: url("/schedule/entgroup-schedule/style/iecss3.htc");*/
+}
+
+.btn-radius-all-2{
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	/*behavior: url("/schedule/entgroup-schedule/style/iecss3.htc");*/
+}
+
+/* 左上角 */
+.btn-radius-lefttop{
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	border-top-left-radius: 4px;
+	/*behavior: url("/schedule/entgroup-schedule/style/iecss3.htc");*/
+}
+
+/* 左下角 */
+.btn-radius-leftbottom{
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+	/*behavior: url("/schedule/entgroup-schedule/style/iecss3.htc");*/
+}
+
+/* 右上角 */
+.btn-radius-righttop{
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-right-radius: 4px;
+	/*behavior: url("/schedule/entgroup-schedule/style/iecss3.htc");*/
+}
+
+/* 右下角 */
+.btn-radius-rightbottom{
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+	/*behavior: url("/schedule/entgroup-schedule/style/iecss3.htc");*/
+}
+
+/* 边框颜色 */
+.btn-bc-0{
+	border-color: #fff;
+}
+
+.btn-bc-1{
+	border-color: #f29200;
+}
+
+.btn-bc-2{
+	border-color: #3085be;
+}
+
+.btn-bc-3{
+	border-color: #bbb;
+}
+
+.btn-bc-4{
+	border-color: #f9904b;
+}
+
+.btn-bc-5{
+	border-color: #ccc;
+}
+
+.btn-bc-6{
+	border-color: #03799B;
+}
+
+.btn-bc-7{
+	border-color: #92b6c0;
+}
+
+.btn-bc-8{
+	border-color: #F2F2F2;
+}
+
+/* 去边框 */
+.btn-all-none{
+	border: none;
+}
+.btn-bt-none{
+	border-top: none;
+}
+
+.btn-br-none{
+	border-right: none;
+}
+
+.btn-bb-none{
+	border-bottom: none;
+}
+
+.btn-bl-none{
+	border-left: none;
+}
+
+/* 背景色 */
+.btn-bg-color-1{
+	background-color: #038ab1;
+}
+
+.btn-bg-color-2{
+	background-color: #7098a3;
+}
+
+.btn-bg-color-3{
+	background-color: #7098A3;
+}
+
+.btn-bg-color-4{
+	background-color: #C1D8DE;
+}
+
+.btn-bg-color-5{
+	background-color: #41cac0;
+}
+
+.btn-bg-color-6{
+	background-color: #fff;
+}
+
+.btn-bg-color-7{
+	background-color: #fbfbfb;
+}
+
+.btn-bg-color-lg1{
+	background: -webkit-linear-gradient(#fff, #eee);
+	background: -moz-linear-gradient(#fff, #eee);
+	background: -o-linear-gradient(#fff, #eee);
+	background: linear-gradient(#fff, #eee);
+}
+
+.btn-bg-color-lg2{
+	background: -webkit-linear-gradient(#038ab1, #026C91, #038ab1);
+    background: -o-linear-gradient(#038ab1, #026C91, #038ab1);
+    background: -moz-linear-gradient(#038ab1, #026C91, #038ab1);
+    background: linear-gradient(#038ab1, #026C91, #038ab1);
+}
+
+/* 字体颜色 */
+.btn-font-color-1{
+	color: #ff0;
+}
+
+.btn-font-color-2{
+	color: #fff;
+}
+
+.btn-font-color-3{
+	color: #333;
+}
+
+.btn-font-color-6{
+	color: #666;
+}
+
+.btn-font-color-9{
+	color: #999;
+}
+
+.btn-font-color-c{
+	color: #ccc;
+}
+
+.btn-font-color-4{
+	color: #ccc;
+}

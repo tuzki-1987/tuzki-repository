@@ -1,0 +1,168 @@
+<!-- 首周人次分析 二级模块 -->
+<link type="text/css" rel="stylesheet" href="style/person_of_film.css" />
+<link type="text/css" rel="stylesheet" href="style/button.css" />
+<script type="text/javascript" src="script/box_office_suc/person_film.js"></script>
+
+<div class="pf-film-box">
+	<div class="ff1 fs15 fw4 clr1 mb15">首周人次分析</div>
+	<!-- 选影片 -->
+	<div class="div-box mb15">
+		<div class="div-head"><!-- 头部 --></div>
+
+		<div class="div-data pdtb10 fs13"><!-- 数据区 -->
+			<div class="div-data-block w988 mtauto">
+				<div class="block-option pfb-title">选择影片：</div>
+				<div id="pfb_cnt" class="block-option pfb-cnt">
+					<!-- <a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a>
+					<a href="javascript:;" title="">
+						<img src="images/chk1.png" class="chk-img" />
+						<span>终结者：创世纪</span>
+					</a> -->
+				</div>
+				<div class="clean"></div>
+			</div>
+
+			<div class="div-data-block w988 m20">
+				<div class="block-option pfb-title pfb-title-mt">选择日期：</div>
+				<div class="time_search pfb-date ml5" id="showschedule">
+                    <input id="personDate" class="time Wdate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true})" value="" />
+                    <input type="button" class="sh" id="searchFilm"/>
+                    <!--<script type="text/javascript">document.getElementById('personDate').value=SetDateStr(0, '');</script>-->
+                </div>
+			</div>
+
+			<div class="div-data-block w988 fx-btn">
+				<div class="rechk">重新选择</div>
+				<div class="start-fx">
+					<div class="start-fx-t"></div>
+                    <div id="analyze_btn" class="start-fx-m">开始分析</div>
+                    <div class="start-fx-b"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="div-foot"><!-- 底部 --></div>
+	</div>
+	<!-- 选影片 -->
+
+	<!-- 当日票房成绩单 -->
+	<div class="reportDiv">
+		<div class="show-list w1020">
+			<!-- 模块标题 -->
+			<div class="show-list-head h50 fs13">当日票房成绩单</div>
+			<!-- 模块标题 -->
+
+			<!-- 数据区 -->
+			<div id="reportCntDiv" class="">
+				<table width="100%" id="reportCntTbl" class="show-list-tbl reportCntTbl" cellspacing="0" cellpadding="0" border="0">
+					<tr id="analyze_title" class="show-list-tbl-head">
+		                <th width="22%" class="th-idt">影片名称</th>
+		                <th width="11%" class="">类型</th>
+		                <th width="11%" class="">已观影人次(万)</th>
+		                <th width="11%" class="">首周人数和</th>
+		                <th width="11%" class="">上映天数</th>
+		                <th width="13%" class="">详细</th>
+		            </tr>
+		            <tr class="show-list-tbl-data show-list-tbl-data-odd">
+		            	<td colspan="6" align="center">选择影片，开始分析</td>
+		            </tr>
+		            <!-- <tr>
+		            	<td colspan="6">
+		            		<div class="w988 mtauto no-data-div">
+			            		<img class="tip-light" src="images/tip.png">
+								<span class="tip-text-nodata fs20 clr8">暂无数据，您可在生成排片后查看</span>
+							</div>
+		            	</td>
+		            </tr> -->
+		            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>科幻</td>
+		                <td>100</td>
+		                <td>329482</td>
+		                <td>30</td>
+		                <td><a href="javascript:;" onclick="showDetailData(0);">查看</a></td>
+		            </tr>
+		            <tr class="show-list-tbl-data show-list-tbl-data-even">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>科幻</td>
+		                <td>100</td>
+		                <td>329482</td>
+		                <td>30</td>
+		                <td><a href="javascript:;" onclick="showDetailData(0);">查看</a></td>
+		            </tr> -->
+				</table>
+			</div>
+			<!-- 数据区 -->
+		</div>
+	</div>
+	<!-- 当日票房成绩单 -->
+
+	<!-- 详细 start -->
+	<div id="pab_cnt_detail" class="yting pab-cnt-detail btn-bc-3 btn-common btn-radius-all">
+		<a href="javascript:;" class="pab-cnt-close"><img src="images/xuanze03_03.png" /></a>
+		<table id="" class="show-list-tbl reportCntTbl reportCntTblBg" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<thead>
+				<tr id="analyze_title_detail" class="show-list-tbl-head">
+					<th class="th-idt" width="17%">序号</th>
+					<th class="" width="13%">周</th>
+					<th class="" width="15%">日期</th>
+					<th class="" width="20%">单日观影人次(万)</th>
+					<th class="" width="15%">累计人数</th>
+					<!-- <th class="" width="15%">单日票房</th>
+					<th class="" width="15%">累计票房</th> -->
+				</tr>
+				<tr class="show-list-tbl-data show-list-tbl-data-even">
+					<td class="th-idt">1</td>
+		            <td>周二</td>
+		            <td>2015-10-27</td>
+		            <td>100</td>
+		            <td>329482</td>
+		        </tr>
+			</thead>
+		</table>
+	</div>
+	<!-- 详细 end -->
+	<div id="zhezhao2" class="zhezhao2"></div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		// loginStatus();
+		loadPersonFilmList();
+	});
+	
+	setTimeout(function() {
+        leftAreaObj.setLeftAreaH();
+    }, 500);
+</script>

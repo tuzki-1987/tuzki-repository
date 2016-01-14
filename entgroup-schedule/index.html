@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>计算机辅助排片系统</title>
+    <meta name="keywords" content="万达, 万达计算机, 计算机辅助, 计算机排片, 计算机系统, 辅助排片, 排片系统" />
+	<meta name="description" content="计算机辅助排片系统" />
+    <link type="text/css" rel="stylesheet" href="style/base.css" />
+    <link type="text/css" rel="stylesheet" href="style/content.css" />
+    <link type="text/css" rel="stylesheet" href="style/page.css" />
+    <script type="text/javascript" src="script/lib/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="script/public.js"></script>
+    <script type="text/javascript" src="script/index.js"></script>
+
+    <script type="text/javascript" src="script/tools/base64.js"></script>
+	<script type="text/javascript" src="script/tools/langtext.js"></script>
+    <script type="text/javascript" src="script/client.js"></script>
+    <script type="text/javascript" src="script/tools/main.js"></script>
+	<script type="text/javascript" src="script/tools/cinemaMngCtrl.js"></script>
+</head>
+
+<body>
+	<div class="body-box w1290">
+		<!-- 顶部 -->
+		<div class="top-box w1290 h74">
+			<div class="h20"></div>
+			<div class="top-cnt-box w1230 mtauto">
+				<div class="fl fs20 clr1">电影大数据BI服务平台</div>
+				<div class="fr lh35 fs13">
+					<span>2015年9月9日</span>，
+					<span>登陆名：<span id="userInfoName" class="login-name clr2">Martin</span></span>，
+					<span>影院名称：<span id="userInfoCinema" class="cinema-name clr2">Martin</span></span>，
+					<span>所属院线：<span id="userInfoOwner" class="cinema-company clr2">某某影投公司</span></span>，
+					<span>欢迎登陆数据BI服务平台</span>
+					<a href="javascript:;" id="loginOuts" class="sec-logout">安全退出</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- 顶部 -->
+
+		<div class="btm-box w1280 mt-10">
+			<!-- 左边区域 -->
+			<div class="btm-left-box w210 fl">
+				<ul class="ul-nav mt20">
+					<li class="li-nav fs13">
+						<a href="javascript:;" class="li-nav-a" onclick="firstMenuEvent(this);" onmouseover="overMenu(this);" onmouseout="leaveMenu(this);" data="0"><img src="images/icon1.png" />我的影院</a>
+					</li>
+					<li class="li-nav fs13">
+						<a href="javascript:;" class="li-nav-a" onclick="firstMenuEvent(this);" onmouseover="overMenu(this);" onmouseout="leaveMenu(this);" data="0"><img src="images/icon2.png" />排期设置</a>
+					</li>
+					<li class="li-nav fs13">
+						<a href="javascript:;" class="li-nav-a" onmouseover="overMenu(this);" onmouseout="leaveMenu(this);" data="0" onclick="clickSubNav(this);"><img src="images/icon3.png" />排片计划</a>
+						<div class="sub-nav fs14">
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 2, 0);"><span></span>推荐排片</a>
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 2, 1);"><span></span>自定义排片</a>
+						</div>
+					</li>
+					<li class="li-nav fs13">
+						<a href="javascript:;" class="li-nav-a" onmouseover="overMenu(this);" onmouseout="leaveMenu(this);" data="0" onclick="clickSubNav(this);"><img src="images/icon4.png" />智能排片</a>
+						<div class="sub-nav fs14">
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 3, 0);"><span></span>排期展示</a>
+							<!-- <a href="page/intelligent-sch/test.html" class="sub-nav-a"><span></span>排期展示</a> -->
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 3, 1);"><span></span>按影厅显示</a>
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 3, 2);"><span></span>按影片名称显示</a>
+						</div>
+					</li>
+					<li class="li-nav fs13">
+						<a href="javascript:;" class="li-nav-a" onmouseover="overMenu(this);" onmouseout="leaveMenu(this);" data="0" onclick="clickSubNav(this);"><img src="images/icon5.png" />观影成绩单</a>
+						<div class="sub-nav fs14">
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 4, 0);"><span></span>观影成绩单</a>
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 4, 1);"><span></span>首周人次分析</a>
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 4, 2);"><span></span>当日前五</a>
+							<a href="javascript:;" class="sub-nav-a" onclick="clickSubMenu(this, 4, 3);"><span></span>统计分析</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- 左边区域 -->
+
+			<!-- 右边区域 -->
+			<div class="btm-right-box w1070 fr pdtb30">
+				<div class="inner-box w1035 mtauto"></div>
+			</div>
+			<!-- 右边区域 -->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<div id="addmyplan" class="fixedRight">
+		<a href="javaScript:void(0);" title="返回顶部" class="toTop" style="display: block;">回到顶部</a>
+	</div>
+
+	<script type="text/javascript" src="script/lib/My97DatePicker/WdatePicker.js"></script>
+	<link type="text/css" rel="stylesheet" href="script/lib/My97DatePicker/skin/WdatePicker.css" />
+	<script type="text/javascript" src="layer/layer.min.js"></script>
+	<script type="text/javascript" src="script/box_office_suc/highcharts/highcharts.js" id="highchartScript"></script>
+	<script type="text/javascript">
+		setTimeout(function() {
+			leftAreaObj.setLeftAreaH();
+		}, 500);
+		
+		initSetMenu();
+	</script>
+</body>
+</html>

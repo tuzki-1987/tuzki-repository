@@ -1,0 +1,118 @@
+<!-- 统计分析 -->
+<link type="text/css" rel="stylesheet" href="style/person_of_film.css" />
+<!-- highcharts.js 已放到首页HTML加载, 在此处加载会出现Error #16:Highcharts 重复定义。即每访问一次这个页面, 就会定义一个Highcharts对象, 而重复定义就会出现错误; 故放到index.html只加载一次 -->
+<!-- <script type="text/javascript" src="script/box_office_suc/highcharts/highcharts.js" id="highchartScript"></script> -->
+<script type="text/javascript" src="script/box_office_suc/month_total_chart_impl.js"></script>
+<script type="text/javascript" src="script/box_office_suc/month_total.js"></script>
+<script type="text/javascript" src="script/tools/ajaxFileUpload.js"></script>
+
+<div id="boCharModel">
+	<div class="ff1 fs15 fw4 clr1 mb15">统计分析</div>
+	<!-- 条件区域 -->
+	<div class="div-box mb15">
+		<div class="div-head"><!-- 头部 --></div>
+
+		<div class="div-data pdtb10 fs13"><!-- 数据区 -->
+			<div class="div-data-lr w988 mtauto">
+				<div class="div-data-lt">
+					<div class="div-data-block mtauto">
+						<div class="div-data-lt-title">选择日期：</div>
+						<div id="mtOneDay" class="block-option">
+							<a href="javascript:;" name="" class="chart-a">昨天</a>
+	                		<a href="javascript:;" name="" class="chart-a active">今天</a>
+	                		<a href="javascript:;" name="" class="chart-a">明天</a>
+							<div class="time_search div-data-lt-date ml15" id="showschedule">
+			                    <input id="mtOneDaySltDate" class="time Wdate mtOneDaySltDate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, onpicked:WdatePickedFunc})" value="" />
+			                    <input type="button" class="sh" id="searchFilm"/>
+			                </div>
+						</div>
+						<div class="clean"></div>
+					</div>
+					<div class="h15"></div>
+					<div class="div-data-block mtauto">
+						<div class="div-data-lt-title">选择时段：</div>
+						<div id="mtTimeCycle" class="block-option">
+	                		<a href="javascript:;" class="chart-a active" name="mtAllTimeCycle">全时段</a>
+                			<a href="javascript:;" class="chart-a" name="mtGoldTimeCycle">黄金时段</a>
+						</div>
+						<div class="clean"></div>
+					</div>
+				</div>
+
+				<div class="div-data-rt mr30 mt30">
+					<button id="startAnalysis" class="chege_tbn fs13 clr4">开始分析</button>
+				</div>
+
+				<div class="clean"></div>
+			</div>
+		</div>
+
+		<div class="div-foot"><!-- 底部 --></div>
+	</div>
+	<!-- 条件区域 -->
+
+	<!-- 报表展示区域 -->
+	<div class="show-list w1020 mb20">
+		<div id="mtShowDataKinds" class="mt_sub_menu_cmn custom-menu fs13">
+			<a href="javascript:;" class="today-menu-act active" name="mtTicketTotal">场次数</a>
+			<a href="javascript:;" class="" name="mtTicketRate">票房占比</a>
+			<a href="javascript:;" class="" name="mtPersonRate">人次占比</a>
+			<a href="javascript:;" class="" name="topFiveOfDay">单日前五</a>
+			<div class="clean"></div>
+        </div>
+
+        <div class="area-chart">
+        	<div class="ss-param-head h50 fs13 lh50">场次数统计分析报表</div>
+
+        	<!-- 图表区 -->
+        	<div class="area-chart-show w1018 mtauto">
+        		<div class="mt_title_cnt w988 mtauto">
+					<a href="javascript:;" id="chartSglDay" class="mttc-left active">单日<span id="mtOneDayDate"></span></a>
+					<a href="javascript:;" id="chartTrend" class="mttc-right">趋势</a>
+				</div>
+
+				<!-- 绘制图表 -->
+        		<div id="mtShowBox" class="mt_cnt_box w988 mtauto">
+					<div id="chartContainer" class="mcb_chartBox">
+						<!-- <img class="tip-light" src="images/tip.png">
+						<span class="tip-text-nodata fs20 clr8">暂无数据，您可在生成排片后查看</span> -->
+					</div>
+					<div id="" class="mcb_stockBox"></div>
+				</div>
+				<!-- 绘制图表 -->
+        	</div>
+        	<!-- 图表区 -->
+
+        	<!-- 快速上传 -->
+        	<div class="foot-set show-list-tbl-foot">
+        		<div class="upCtrl char-up">
+					<div id="reportTitle" class="title-border fs13">立即上传票房明细：</div>
+					<!-- 上传 start -->
+					<div class="line">
+						<!-- <form id="upFileForm" action="" method="post" enctype="multipart/form-data"> -->
+							<span class="span">
+								<input name="" type="text" id="viewfile"
+								 onmouseout="document.getElementById('uploadDetail').style.display='none';"
+								 class="inputstyle" readonly="readonly" />
+							</span>
+							<label for="unload" onmouseover="document.getElementById('uploadDetail').style.display='block';" class="file1">浏览...</label>
+							<input type="file" name="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';" class="file" id="uploadDetail" readonly="readonly" />&nbsp;&nbsp;
+							<input type="button" id="upDtlBtn" class="upDtlBtn" name="upDtlBtn" value="" onclick="upScheDetailForChar(this.id);" value="上传并分析" />
+						<!-- </form> -->
+					</div>
+					<!-- 上传 end -->
+
+					<div id="detailIndex" class="detailIndex charDetailIndex"></div>
+				</div>
+        	</div>
+        	<!-- 快速上传 -->
+        </div>
+	</div>
+	<!-- 报表展示区域 -->
+</div>
+
+<script type="text/javascript">
+	setTimeout(function() {
+        leftAreaObj.setLeftAreaH();
+    }, 500);
+</script>

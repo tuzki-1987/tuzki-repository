@@ -1,0 +1,300 @@
+<!-- 观影成绩单 -->
+<link type="text/css" rel="stylesheet" href="style/box_office_report-detail.css" />
+<link type="text/css" rel="stylesheet" href="style/jquery.dataTables.css" />
+<script type="text/javascript" src="script/tools/ajaxFileUpload.js"></script>
+<script type="text/javascript" src="script/lib/jquery.dataTables.js"></script>
+<script type="text/javascript" src="script/box_office_suc/auto-prompt.js"></script>
+<script type="text/javascript" src="script/box_office_suc/box_office_report-detail.js"></script>
+<script type="text/javascript" src="script/box_office_suc/box_office_report-score.js"></script>
+<script type="text/javascript" src="script/box_office_suc/box_office_report-history.js"></script>
+<script type="text/javascript" src="script/box_office_suc/box_office_report.js"></script>
+
+<div id="boxOfficeModel">
+	<div class="ff1 fs15 fw4 clr1 mb15">观影成绩单</div>
+	<!-- 上传明细票房 -->
+	<div class="div-box mb15">
+		<div class="div-head"><!-- 头部 --></div>
+
+		<div class="div-data pdtb10"><!-- 数据区 -->
+			<div class="upCtrl">
+				<div id="reportTitle" class="title-border fs13">请上传票房明细：</div>
+				<!-- 上传 start -->
+				<div class="line">
+					<!-- <form id="upFileForm" action="" method="post" enctype="multipart/form-data"> -->
+						<span class="span">
+							<input name="" type="text" id="viewfile"
+							 onmouseout="document.getElementById('uploadDetail').style.display='none';"
+							 class="inputstyle" readonly="readonly" />
+						</span>
+						<label for="unload" onmouseover="document.getElementById('uploadDetail').style.display='block';" class="file1">浏览...</label>
+						<input type="file" name="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';" class="file" id="uploadDetail" />&nbsp;&nbsp;
+						<input type="button" id="upDtlBtn" class="upDtlBtn" name="upDtlBtn" value="" onclick="upScheDetail(this.id);" value="上传并分析" />
+					<!-- </form> -->
+				</div>
+				<!-- 上传 end -->
+
+				<!-- 明细名 -->
+				<div id="detailIndex" class="detailIndex">
+					<!-- 不同票房明细切换显示的判断条件 -->
+					<input type="hidden" name="titleContainer" id="titleContainer" value="" />
+					<!-- <span class="fs13">查看明细：</span><a href="">明细标题</a> -->
+				</div>
+				<!-- 明细名 -->
+			</div>
+			
+			<!-- 明细容器 -->
+			<div id="detailContainer" class="yting reportCnt detailContainer">
+				<!--<p id="dc_title" class="dc-title"><!--标题信息--</p>-->
+
+				<!-- 数据循环块 -->
+				<!--<div id="dc_data_box" class="dc-data-box clearF">-->
+					<!-- 左边 -->
+					<!--<div id="dcdbox_left" class="dcdbox-left ft">
+						<div id="dcdbox_left_data" class="dcdbox-left-data area-ht clearF">
+							<h4 class="ft">1</h4>
+							<div class="dcdbox-left-data-list">数据列表</div>
+						</div>
+						<div class="dcdbox-left-data-name">
+							<p class="unmatch-film-name">潜艇总动员之时光宝盒</p>
+							<span class="unmatch-film-tip">未匹配影片，请手动选择</span>
+						</div>
+					</div>
+					<!-- 左边 -->
+
+					<!-- 右边 -->
+					<!--<div id="dcdbox_right" class="dcdbox-right ft">
+						<table id="dcdbox_right_tbl" class="dcdbox-right-tbl" cellspacing="0" cellpadding="0" border="0">
+							<thead>
+								<th width="16%" class="area-ht">厅名</th>
+								<th width="14%" class="area-ht">放映日期</th>
+								<th width="14%" class="area-ht">放映时间</th>
+								<th width="14%" class="area-ht">总票数</th>
+								<th width="14%" class="area-ht">总票房</th>
+								<th width="14%" class="area-ht">总座位数</th>
+								<th width="14%" class="area-ht">上座率</th>
+							</thead>
+							<tr>
+								<td width="16%">1号4K厅</td>
+								<td colspan="6">
+									<table class="dcdbox-right-tbl-innerTbl" cellspacing="0" cellpadding="0" border="0" width="100%">
+										<tr>
+											<td width="14%">2015-05-20</td>
+											<td width="14%">17:20</td>
+											<td width="14%">200</td>
+											<td width="14%">1870</td>
+											<td width="14%">200</td>
+											<td width="14%">100%</td>
+										</tr>
+									</table>
+								</td>
+								
+							</tr>
+							<tr>
+								<td width="16%">2号4K厅</td>
+								<td colspan="6">
+									<table class="dcdbox-right-tbl-innerTbl" cellspacing="0" cellpadding="0" border="0" width="100%">
+										<tr>
+											<td width="14%">2015-05-20</td>
+											<td width="14%">17:20</td>
+											<td width="14%">200</td>
+											<td width="14%">1870</td>
+											<td width="14%">200</td>
+											<td width="14%">100%</td>
+										</tr>
+										<tr>
+											<td width="14%">2015-05-20</td>
+											<td width="14%">17:20</td>
+											<td width="14%">200</td>
+											<td width="14%">1870</td>
+											<td width="14%">200</td>
+											<td width="14%">100%</td>
+										</tr>
+									</table>
+								</td>
+								
+							</tr>
+							
+							<tr>
+								<td width="16%">3号4K厅</td>
+								<td colspan="6">
+									<table class="dcdbox-right-tbl-innerTbl" cellspacing="0" cellpadding="0" border="0" width="100%">
+										<tr>
+											<td width="14%">2015-05-20</td>
+											<td width="14%">17:20</td>
+											<td width="14%">200</td>
+											<td width="14%">1870</td>
+											<td width="14%">200</td>
+											<td width="14%">100%</td>
+										</tr>
+									</table>
+								</td>
+								
+							</tr>
+						</table>
+					</div>
+					<!-- 右边 --
+				</div>-->
+				<!-- 数据循环块 -->
+			</div>
+			<!-- 明细容器 -->
+		</div>
+
+		<div class="div-foot"><!-- 底部 --></div>
+	</div>
+	<!-- 上传明细票房 -->
+	
+	<div class="clean"></div>
+	
+	<!-- 当日票房成绩单 -->
+	<div class="reportDiv">
+		<!-- 加载动画 -->
+		<!-- <a href="javascript:;" id="loadImg2" style="display: block; text-align: center;"><img src="images/load.gif" width="20" height="20" /></a> -->
+		<!-- 加载动画 -->
+		
+		<div class="show-list w1020">
+			<!-- 模块标题 -->
+			<div class="show-list-head h50 fs13">
+				<div class="head-tt-lf">当日票房成绩单</div>
+				<div class="time_search head-tt-rt" id="showschedule">
+                    <input id="temptime1" class="time Wdate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, onpicked:queryBoxOfficeTotal})" value="" />
+                    <input type="button" class="sh" id="searchFilm"/>
+                </div>
+                <div class="clean"></div>
+			</div>
+			<!-- 模块标题 -->
+
+			<!-- 数据区 -->
+			<div id="reportCntDiv" class="">
+				<table width="100%" id="reportCntTbl" class="show-list-tbl reportCntTbl" cellspacing="0" cellpadding="0" border="0">
+					<tr id="reportCntTblTr" class="show-list-tbl-head">
+		                <th width="22%" class="th-idt">影片名称</th>
+		                <th width="11%" class="">场次数（系统）</th>
+		                <th width="11%" class="">场次比率</th>
+		                <th width="11%" class="">观影人次数</th>
+		                <th width="11%" class="">观影人次比率</th>
+		                <th width="13%" class="">场均人次数</th>
+		            </tr>
+		            <!-- <tr>
+		            	<td colspan="6">
+		            		<div class="w988 mtauto no-data-div">
+			            		<img class="tip-light" src="images/tip.png">
+								<span class="tip-text-nodata fs20 clr8">暂无数据，您可在生成排片后查看</span>
+							</div>
+		            	</td>
+		            </tr> -->
+		            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>39</td>
+		                <td>56.68%</td>
+		                <td>1,396</td>
+		                <td>30%</td>
+		                <td>100</td>
+		            </tr>
+		            <tr class="show-list-tbl-data show-list-tbl-data-even">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>39</td>
+		                <td>56.68%</td>
+		                <td>1,396</td>
+		                <td>30%</td>
+		                <td>100</td>
+		            </tr>
+		            <tr class="show-list-tbl-data show-list-tbl-data-odd">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>39</td>
+		                <td>56.68%</td>
+		                <td>1,396</td>
+		                <td>30%</td>
+		                <td>100</td>
+		            </tr>
+		            <tr class="show-list-tbl-data show-list-tbl-data-even">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>39</td>
+		                <td>56.68%</td>
+		                <td>1,396</td>
+		                <td>30%</td>
+		                <td>100</td>
+		            </tr> -->
+				</table>
+			</div>
+			<!-- 数据区 -->
+		</div>
+	</div>
+	<!-- 当日票房成绩单 -->
+
+	<!-- 历史数据查询 -->
+	<div class="history-data-query">
+		<div class="show-list w1020">
+			<!-- 模块标题 -->
+			<div class="show-list-head h50 fs13">
+				<div class="head-tt-lf">票房历史查询</div>
+				<div class="time_search head-tt-rt" id="showschedule">
+                    <input id="temptime2" class="time Wdate sltDate2" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, onpicked:queryDetailHistory})" value="" />
+                    <input type="button" class="sh" id="searchFilm"/>
+                </div>
+                <div class="clean"></div>
+			</div>
+			<!-- 模块标题 -->
+
+			<!-- 数据区 -->
+			<div id="reportCntDiv" class="">
+				<table width="100%" id="historyDetailCntTbl" class="show-list-tbl reportCntTbl" cellspacing="0" cellpadding="0" border="0">
+					<thead>
+						<tr id="historyDetailCntTblTr" class="show-list-tbl-head">
+			                <th width="19%" class="th-idt">影片名称</th>
+			                <th width="13%" class="">放映日期</th>
+			                <th width="10%" class="">场次数</th>
+			                <th width="13%" class="">售票额</th>
+			                <th width="11%" class="">总票数</th>
+			                <th width="13%" class="">总票房</th>
+			                <th width="10%" class="">人均票价</th>
+			            </tr>
+			        </thead>
+		            <tr>
+		            	<td colspan="7" class="show-list-tbl-data show-list-tbl-data-odd" align="center">按日期查询观影历史数据</td>
+		            </tr>
+		            <!-- <tr>
+		            	<td colspan="7">
+		            		<div class="w988 mtauto no-data-div">
+			            		<img class="tip-light" src="images/tip.png">
+								<span class="tip-text-nodata fs20 clr8">暂无数据，您可在生成排片后查看</span>
+							</div>
+		            	</td>
+		            </tr> -->
+		            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>2015-09-01</td>
+		                <td>100</td>
+		                <td>1,396,429.00</td>
+		                <td>329482</td>
+		                <td>1,396,429.00</td>
+		                <td>50.00</td>
+		            </tr>
+		            <tr class="show-list-tbl-data show-list-tbl-data-even">
+		                <td class="th-idt td-line">终结者：创世纪</td>
+		                <td>2015-09-01</td>
+		                <td>100</td>
+		                <td>1,396,429.00</td>
+		                <td>329482</td>
+		                <td>1,396,429.00</td>
+		                <td>50.00</td>
+		            </tr> -->
+				</table>
+			</div>
+			<!-- 数据区 -->
+		</div>
+	</div>
+	<!-- 历史数据查询 -->
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		loadBoxOfficeReport();
+	});
+
+	// 声明自动提示类对象
+	var ap = new autoPrompt();
+
+	setTimeout(function() {
+        leftAreaObj.setLeftAreaH();
+    }, 500);
+</script>

@@ -1,0 +1,279 @@
+<!-- 自定义排片 -->
+<link type="text/css" rel="stylesheet" href="style/intelligent-sch.css" />
+<script src="script/planlist/planlistSetSchRemind.js"></script>
+<script src="script/planlist/row_piece.js"></script>
+<script src="script/planlist/row_piece_custom.js"></script>
+
+<div id="planlist_model" class="gzt_tab gzt_tab_myCinema">
+    <div class="ff1 fs15 fw4 clr1 mb15">自定义排片</div>
+    <!-- 明日新片提醒 -->
+    <div class="ss-param w1020 mb25">
+        <div class="ss-param-head h50 fs13 lh50">明日新片提醒</div>
+        <div id="tmrwFilmBox" class="new-film-list">
+            <ul class="new-film-list-ul">
+                <!-- <li class="new-film-list-li">
+                    <div class="new-film-top"></div>
+                    <div class="new-film-data fs13 clr7">
+                        <div class="new-film-data-no">1.</div>
+                        <div class="new-film-data-option">
+                            <p class="new-film-data-p new-film-data-name">碟中谍5：神秘国度</p>
+                            <p class="new-film-data-p">影片时长：<span class="new-film-data-time">105</span>分钟</p>
+                        </div>
+                        <div class="new-film-data-per"></div>
+                        <div class="clean"></div>
+                    </div>
+                    <div class="new-film-btm"></div>
+                </li>
+                
+                <li class="new-film-list-li">
+                    <div class="new-film-top"></div>
+                    <div class="new-film-data fs13 clr7">暂无记录</div>
+                    <div class="new-film-btm"></div>
+                </li>
+
+                <div class="clean"></div> -->
+            </ul>
+        </div>
+        <div class="ss-param-foot foot-small"></div>
+    </div>
+
+    <!-- 排片率列表 -->
+    <div class="mb15">
+        <button id="addPlanSonBtn" class="cmn-btn get-rcmd-list-btn fs13 clr0">添加排片率</button>
+        <div class="custom-schbtn">
+            <div id="showschedule" class="time_search create-sch-date ml5">
+                <input id="scheByPlanDate" class="time Wdate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, minDate:'%y-%M-%d', maxDate:'%y-%M-{%d+6}'})" value="" />
+                <input type="button" class="sh" id="searchFilm"/>
+                <script type="text/javascript">document.getElementById('scheByPlanDate').value=SetDateStr(1, '');</script>
+            </div>
+            <a href="javascript:;" id="createScheByPlan" class="create-sch create-sch-hover ml20" onclick="createSchFunc();">生成排片</a>
+        </div>
+    </div>
+    <div class="show-list w1020 mb20">
+        <div class="show-list-head h50 fs13">排片率列表<span>（当前共有<span class="total-span"></span>部影片）</span></div>
+        <!--排片计划ID 名字 类型 模板类型 记录删除操作（默认0：未执行删除，1：执行了删除）-->
+        <input type="hidden" name="cinemaPlanId" id="cinemaPlanId" value="" readonly="readonly" />
+        <input type="hidden" name="cinemaPlanName" id="cinemaPlanName" value="" readonly="readonly" />
+        <input type="hidden" name="cinemaPlanType" id="cinemaPlanType" value="" readonly="readonly" />
+        <input type="hidden" name="cinemaPlanMark" id="cinemaPlanMark" value="" readonly="readonly" />
+        <input type="hidden" name="rememberDeleteOper" id="rememberDeleteOper" value="0" /><!--目的：区别是否执行抓取数据入表接口-->
+        <table id="planSonTable_custom" class="show-list-tbl">
+            <tr id="rateSonTr" class="show-list-tbl-head">
+                <th width="22%" class="th-idt">影片名</th>
+                <th width="11%" class="">影片时长</th>
+                <th width="11%" class="">百分比(%)</th>
+                <th width="11%" class="">影片类型</th>
+                <th width="11%" class="">影片语种</th>
+                <th width="13%" class="">所属计划</th>
+                <th width="16%" class="">操作</th>
+            </tr>
+
+            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+                <td align="center" colspan="7"><img src="../images/o_31.gif" /></td>
+            </tr> -->
+
+            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+                <td class="th-idt">终结者：创世纪</td>
+                <td>139</td>
+                <td>56.68</td>
+                <td>动画片</td>
+                <td>国语</td>
+                <td>推荐计划</td>
+                <td>
+                    <a id="" class="show-btn" href="javascript:;">保存</a>
+                    <a id="" class="show-btn show-edit-btn" href="javascript:;">编辑</a>
+                    <a id="" class="show-btn" href="javascript:;">删除</a>
+                </td>
+            </tr>
+            <tr class="show-list-tbl-data show-list-tbl-data-even">
+                <td class="th-idt">终结者：创世纪</td>
+                <td>139</td>
+                <td>56.68</td>
+                <td>动画片</td>
+                <td>国语</td>
+                <td>推荐计划</td>
+                <td>
+                    <a id="" class="show-btn" href="javascript:;">保存</a>
+                    <a id="" class="show-btn show-edit-btn" href="javascript:;">编辑</a>
+                    <a id="" class="show-btn" href="javascript:;">删除</a>
+                </td>
+            </tr> -->         
+        </table>
+    </div>
+
+    <!-- 明日排片提醒 -->
+    <div class="show-list w1020 mb20">
+        <div class="ss-param-head h50 fs13 lh50">明日排片提醒</div>
+        <table id="trCntTblWdShg" class="show-list-tbl">
+            <tr id="tmNewFilmTr" class="show-list-tbl-head">
+                <th width="4%"></th>
+                <th width="33%" class="">序号</th>
+                <th width="41%" class="">影片名</th>
+                <th width="21%" class="">场次占比</th>
+            </tr>
+            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+                <td>&nbsp;</td>
+                <td>1</td>
+                <td>终结者：创世纪</td>
+                <td>56.68</td>
+            </tr>
+            <tr class="show-list-tbl-data show-list-tbl-data-even">
+                <td>&nbsp;</td>
+                <td>2</td>
+                <td>终结者：创世纪</td>
+                <td>56.68</td>
+            </tr>
+            <tr class="show-list-tbl-data show-list-tbl-data-odd">
+                <td colspan="4">暂无数据</td>
+            </tr> -->
+        </table>
+    </div>
+
+    <!-- 当日票房统计列表 -->
+    <div class="show-list w1020 mb20">
+        <div class="custom-menu fs13">
+            <ul class="trCntFromSelf">
+                <li class="today-menu"><a href="javascript:;" class="today-menu-act">当日票房</a></li>
+                <li class="week-menu"><a href="javascript:;" class="" onclick="loadBoxOfficeForPlanList(1);">本周票房</a></li>
+                <li class="placeholder-menu"></li>
+                <div class="clean"></div>
+            </ul>
+        </div>
+        <div class="ss-param-head h50 fs13 lh50">当日票房统计列表</div>
+        <table id="trCntTblSelf" class="show-list-tbl">
+            <tr id="trCntTblSelfTr" class="show-list-tbl-head">
+                <th width="22%" class="th-idt">影片名称</th>
+                <th width="11%" class="">场次数</th>
+                <th width="11%" class="">场次占比</th>
+                <th width="11%" class="">人次数</th>
+                <th width="11%" class="">人次占比</th>
+                <th width="13%" class="">场均人次</th>
+            </tr>
+            <!-- <tr class="show-list-tbl-data show-list-tbl-data-odd">
+                <td class="th-idt td-line">终结者：创世纪</td>
+                <td>39</td>
+                <td>56.68%</td>
+                <td>1,396</td>
+                <td>30%</td>
+                <td>100</td>
+            </tr>
+            <tr class="show-list-tbl-data show-list-tbl-data-even">
+                <td class="th-idt td-line">终结者：创世纪</td>
+                <td>39</td>
+                <td>56.68%</td>
+                <td>1,396</td>
+                <td>30%</td>
+                <td>100</td>
+            </tr>
+            <tr class="show-list-tbl-data show-list-tbl-data-odd">
+                <td class="th-idt td-line" colspan="6">暂无数据</td>
+            </tr> -->
+        </table>
+        <!-- <div class="foot-set show-list-foot rt">
+            <div class="page-box">
+                <a href="javascript:;" class="page-btn page-prev page-unclick w60 h27">←&nbsp;Prev</a>
+                <a href="javascript:;" class="page-btn page-active w27 h27">1</a>
+                <a href="javascript:;" class="page-btn page-normal w27 h27">2</a>
+                <a href="javascript:;" class="page-btn page-normal w27 h27">3</a>
+                <a href="javascript:;" class="page-btn page-next w60 h27">Next&nbsp;→</a>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<script type="text/javascript">
+    setTimeout(function() {
+        leftAreaObj.setLeftAreaH();
+    }, 500);
+</script>
+
+<!-- 排片率弹出层 -->
+<div class="blankDivs" id="rowBlabkDiv">
+</div>
+<div class="addMveIfDivs" id="rowBlabkDivst" style="height:auto;">
+    <div class="add_top_divs btn-bg-color-1 btn-bc-2 btn-common btn-radius-lefttop btn-radius-righttop">
+        <span class="addtosp1">添加排片率信息</span>
+        <span class="addtosp2" id="closeRowDivs">X</span>
+    </div>
+    <div class="add_centre_divs btn-bc-2 btn-common btn-radius-leftbottom btn-radius-rightbottom" style="height:auto;">
+        <table class="add_table" cellpadding="16" cellspacing="0" style="padding-top:55px;">
+            <tr>
+                <td width="36%" align="right">影片名称：&nbsp;</td>
+                <td align="left">
+                    <!--<select id="addRowFilmName" class="addRowFilm"></select>-->
+                    <input type="hidden" id="slt_film_time" value="" readonly="readonly" />
+                    <input type="hidden" id="slt_film_name_id" value="" readonly="readonly" />
+                    <input type="text" id="slt_film_name" class="slt-film-name" value="点击选择影片" readonly="readonly" />
+                    <div id="rowFilmName_add" class="slt-film-list"><!--影片列表--></div>
+                    <!--添加影片-->
+                    <div id="add_film_pannel" class="add-film-pannel">
+                        <!-- <p><label>影片编号：</label><input id="movie_id" class="input-1" type="text" value="例: film20150412" onfocus="checkFilmNameFocus(this);" onblur="checkFilmNameBlur(this);" /></p> -->
+                        <p><label class="label-1">影片名称：</label><input id="movie_name" class="input-1" type="text" value="" /></p>
+                        <p><label class="label-1">影片时长：</label><input id="movie_time" class="input-1 input-2" type="text" value="" onblur="checkNum('rowBlabkDivst', this.value, this);" />分钟</p>
+                        <p><label class="label-1">上映日期：</label><input id="movie_showdate" class="input-1 Wdate" type="text" value="" onclick="WdatePicker()" /></p>
+                        <p>
+                            <label class="label-1">影片类型：</label>
+                            <span><input type="radio" name="filmType" id="2D" class="input-chk" value="1" /><label for="2D" class="label-2">2D</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="3D" class="input-chk" value="2" /><label for="3D" class="label-2">3D</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="jm" class="input-chk" value="3" /><label for="jm" class="label-2">巨幕</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="IMAX" class="input-chk" value="4" /><label for="IMAX" class="label-2">IMAX</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="jp" class="input-chk" value="5" /><label for="jp" class="label-2">胶片(进口)</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="other_film" class="input-chk" value="6" /><label for="other_film" class="label-2">其他特种电影</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="other" class="input-chk" value="7" /><label for="other" class="label-2">其他</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="cartoon" class="input-chk" value="8" /><label for="cartoon" class="label-2">动画片</label></span>
+                            <span class="sp-2"><input type="radio" name="filmType" id="documentary" class="input-chk" value="9" /><label for="documentary" class="label-2">纪录片</label></span>
+                            <span><input type="radio" name="filmType" id="science" class="input-chk" value="10" /><label for="science" class="label-2">科教片</label></span>
+                        </p>
+                        <p><label class="label-1">影片编码：</label><input id="movie_code" class="input-1" type="text" value="" onblur="checkNum('rowBlabkDivst', this.value, this);" /></p>
+                        
+                        <p class="btn-class">
+                            <input id="add_film_save" class="btnspan1 btnspan1-1" type="button" value="确  定">
+                            <span id="add_film_cancel" class="btnspan2">取  消</span>
+                        </p>
+                    </div>
+                    <!--添加影片-->
+                </td>
+            </tr>
+            <tr style="margin-top:10px;">
+                <td width="36%" align="right">百&nbsp;&nbsp;分&nbsp;&nbsp;比：&nbsp;</td>
+                <td>
+                    <input style="width:99px;float: left;margin-right:5px;" type="text" id="addRowPercent" onkeyup="checkNum(this.id, this.value, this);" />
+                    <span class="addRowPerSp">%</span>
+                </td>
+            </tr>
+            <tr>
+                <td width="36%" align="right">影片类型：&nbsp;</td>
+                <td><div id="plan_film_type" class="pft"></div></td>
+            </tr>
+            <tr>
+                <td width="36%" align="right">影片编码：&nbsp;</td>
+                <td align="left"><input type="text" id="plan_film_code" class="slt-film-name" value="" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td width="36%" align="right">影片语种：&nbsp;</td>
+                <td align="left">
+                    <input type="text" id="plan_film_lang" class="slt-film-name" readonly="readonly" data="-1" value="请选择所属语种" onblur="hideLanguagePannel(this);" onclick="showLanguagePannel(this);" />
+                    <div class="lang-kind-list" style="display: none;">
+                        <a value="1" href="javascript:;">国语</a>
+                        <a value="2" href="javascript:;">粤语</a>
+                        <a value="3" href="javascript:;">英语</a>
+                        <a value="4" href="javascript:;">日语</a>
+                        <a value="5" href="javascript:;">韩语</a>
+                        <a value="6" href="javascript:;">法语</a>
+                        <a value="7" href="javascript:;">俄语</a>
+                        <a value="8" href="javascript:;">德语</a>
+                        <a value="9" href="javascript:;">意大利语</a>
+                        <a value="10" href="javascript:;">西班牙语</a>
+                        <a value="11" href="javascript:;">其他</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="add_buttoms">
+            <input type="button" class="btnspan1 btnspan1-1" id="saveRowInfo" value="保&nbsp;&nbsp;存" />
+            <span class="btnspan2" id="cancelRowInfo">取&nbsp;&nbsp;消</span>
+        </div>
+        <div style="clear: both; content: '';"></div>
+    </div>
+</div>
+<!-- 排片率弹出层 -->
