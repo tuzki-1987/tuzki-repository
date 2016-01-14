@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="description" content="影院排片稽核系统" />
+        <meta name="keywords" content="影院排片稽核系统,影院稽核系统,排片稽核系统,排片质量,影院,排片" />
+        <meta name="author" content="ccq" />
+        <link rel="icon" href="../../favicon.ico" />
+
+        <title>排片质量智能评估系统</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css" />
+
+        <!-- index styles -->
+        <link rel="stylesheet" type="text/css" href="css/base.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/content.css" />
+        <link rel="stylesheet" type="text/css" href="css/button.css" />
+        <link type="text/css" rel="stylesheet" href="scripts/lib/My97DatePicker/skin/WdatePicker.css" />
+
+        <!-- sub navigation styles -->
+        <link rel="stylesheet" type="text/css" href="css/sub-nav.css" />
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <!-- head -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onclick="showQuickNav();">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id="auditSysName" href="#">排片质量智能评估系统</a>
+                    <!-- <div class="location-box">
+                        <div class="lc-cur-cinema"><span>当前影院：</span>华杰大厦</div>
+                        <div class="lc-cinema-list"></div>
+                    </div> -->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <!-- 导航菜单的 快速选择样式 -->
+                    <ul class="nav navbar-nav navbar-right nav-menus2">
+                        <li class="active">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">影院管理</a>
+                            <!-- <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 0, 0);">大区影院</a>
+                            </div> -->
+                        </li>
+                        <li class="cinema-menu">
+                            <!-- <a href="javascript:;" onclick="firstMenuEvent(this);">票房对比</a> -->
+                        </li>
+                        <li class="cinema-menu">
+                            <!-- <a href="javascript:;" class="has-sub-nav" data="0" onclick="clickSubNav(this);">功能查询</a>
+                            <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 2, 0);">影院票房上传</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 2, 1);">系统排期生成</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 2, 2);">票房明细比较</a>
+                            </div> -->
+                        </li>
+                        <li class="cinema-menu">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">影院信息</a>
+                        </li>
+                        <li class="cinema-menu">
+                            <a href="javascript:;" class="has-sub-nav" data="0" onclick="clickSubNav(this);">排期结果展示</a>
+                            <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 0);">排期展示</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 1);">按影厅显示</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 2);">按影片显示</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 3);">分时段统计</a>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- <a href="javascript:;" class="has-sub-nav" data="0" onclick="clickSubNav(this);">统计分析</a>
+                            <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 5, 0);">大盘票房</a>
+                            </div> -->
+                        </li>
+                        <li>
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">上传票房</a>
+                        </li>
+						<li>
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">票房汇总统计</a>
+                        </li>
+                        <li class="">
+                            <a href="page/user_guide.html" target="_blank" class="user-guide-jh">使用指南</a>
+                        </li>
+                    </ul>
+                    <!-- 导航菜单的 快速选择样式 -->
+
+                    <!-- 退出 -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:;" id="loginOuts" class="btn btn-default logout" onclick="logout();">退出</a></li>
+                    </ul>
+                    <!-- 退出 -->
+
+                    <!-- 登录后的用户信息 -->
+                    <ul class="login-info nav navbar-nav navbar-right">
+                        <li class="login-info-span-title">登录名：<span id="loginNameJH"></span></li>
+                        <li class="login-info-span-title">下属影院数量：<span id="childCinemaNumsJH"></span></li>
+                    </ul>
+                    <!-- 登录后的用户信息 -->
+
+                    <!-- 当前影院指示区 -->
+                    <ul class="location-box nav navbar-nav navbar-right" onclick="openCinemaListPannel(this, event);">
+                        <li>
+                            <a href="javascript:;" id="curLocate" class="btn btn-default location" style="color: #f1f1f1;">
+                                <img src="images/location.png" style="margin-top: 1px; vertical-align: top;" />
+                                <span>当前影院：</span><span class="cur-locat-cinema-name"><!-- 当前影院名字 --></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- head -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- menu nav -->
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar nav-menus">
+                        <li class="active alone-menu">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">影院管理</a>
+                            <!-- <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 0, 0);">大区影院</a>
+                            </div> -->
+                        </li>
+                        <li class="cinema-menu">
+                            <!-- <a href="javascript:;" onclick="firstMenuEvent(this);">票房对比</a> -->
+                        </li>
+                        <li class="cinema-menu">
+                            <!-- <a href="javascript:;" class="has-sub-nav" data="0" onclick="clickSubNav(this);">功能查询</a>
+                            <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 2, 0);">影院票房上传</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 2, 1);">系统排期生成</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 2, 2);">票房明细比较</a>
+                            </div> -->
+                        </li>
+                        <li class="cinema-menu">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">影院信息</a>
+                        </li>
+                        <li class="cinema-menu">
+                            <a href="javascript:;" class="has-sub-nav" data="0" onclick="clickSubNav(this);">排期结果展示</a>
+                            <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 0);">排期展示</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 1);">按影厅显示</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 2);">按影片显示</a>
+                                <a href="javascript:;" onclick="clickSubMenu(this, 4, 3);">分时段统计</a>
+                            </div>
+                        </li>
+                        <li class="alone-menu">
+                            <!-- <a href="javascript:;" class="has-sub-nav" data="0" onclick="clickSubNav(this);">统计分析</a>
+                            <div class="sub-nav">
+                                <a href="javascript:;" onclick="clickSubMenu(this, 5, 0);">大盘票房</a>
+                            </div> -->
+                        </li>
+                        <li class="alone-menu">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">上传票房</a>
+                        </li>
+						<li class="alone-menu">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">票房汇总统计</a>
+                        </li>
+                        <li class="">
+                            <a href="page/user_guide.html" target="_blank" class="user-guide-jh">使用指南</a>
+                        </li>
+                        <li class="cinema-menu">
+                            <div class="back-btn-box" onclick="firstMenuEvent(this); hideCinemaPannle();">
+                                <button class="btn btn-warning back-btn">返回</button>
+                            </div>
+                        </li>
+                        <!-- <li class="alone-menu">
+                            <a href="javascript:;" onclick="firstMenuEvent(this);">测试</a>
+                        </li> -->
+                    </ul>
+                </div>
+                <!-- menu nav -->
+
+                <!-- data show -->
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <!-- 模块数据展示区 -->
+                    <center><img src="images/loading.gif" /></center>
+                </div>
+                <!-- data show -->
+            </div>
+        </div>
+
+        <!-- 全局隐藏域 -->
+        <!-- 保存"票房成绩单"查询日期，作为"系统排期生成"初始值 -->
+        <input type="hidden" name="boxOfficeQueryDate" id="initSchDate" value="" />
+        <!-- 保存当前操作的影院ID(未使用) -->
+        <input type="hidden" name="cinemaId" id="cinemaId" value="" />
+        <!-- 保存"系统排期生成"查询日期，作为"票房明细比较-系统预排"的日期提醒值 -->
+        <input type="hidden" name="createSchDate" id="schTipDate" value="" />
+        <!-- 控制 "生成排期" 按钮显示/隐藏 -->
+        <input type="hidden" name="ctrlCreateSchBtn" id="ctrlCreateSchBtn" value="" />
+        <!-- 保存 影院管理-汇总统计-查询日期, 作为"生成&查看"点击后的日期参数 -->
+        <input type="hidden" name="groupSchDate" id="groupSchDate" value="" />
+        <!-- 保存 影院管理-汇总统计-未上传, 作为"上传票房"点击后的加载选项卡参数 -->
+        <input type="hidden" name="uploadTabIndex" id="uploadTabIndex" value="" />
+
+        <div id="addmyplan" class="fixedRight">
+            <a href="javaScript:void(0);" title="返回顶部" class="toTop" style="display: block;">回到顶部</a>
+        </div>
+
+        <!-- 遮罩层 --
+        <div id="zhezhao" class="zhezhao"></div>
+        <!-- 遮罩层 -->
+        <!-- 遮罩层 -->
+        <div id="zhezhao2" class="zhezhao2"></div>
+        <!-- 遮罩层 -->
+
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="scripts/lib/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="scripts/lib/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script type="text/javascript" src="scripts/lib/ie10-viewport-bug-workaround.js"></script>
+        <!-- tools Javascript -->
+        <script type="text/javascript" src="scripts/tools/base64.js"></script>
+        <script type="text/javascript" src="scripts/tools/langtext.js"></script>
+        <script type="text/javascript" src="scripts/tools/main.js"></script>
+        <script type="text/javascript" src="scripts/tools/cinemaMngCtrl.js"></script>
+        <script type="text/javascript" src="layer/layer.min.js"></script>
+        <script type="text/javascript" src="scripts/lib/My97DatePicker/WdatePicker.js"></script>
+        <!-- index Javascript -->
+        <script type="text/javascript" src="scripts/client.js"></script>
+        <script type="text/javascript" src="scripts/public.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript">
+            initSetMenu();
+        </script>
+    </body>
+</html>

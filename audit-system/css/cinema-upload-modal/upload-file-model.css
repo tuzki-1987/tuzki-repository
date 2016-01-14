@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+
+/**
+* 上传控件区域样式
+**/
+
+.cinema-up-area1{}
+.cinema-up-area2{
+	display: none;
+}
+
+/* 上传控件 */
+.upCtrl{
+	margin: 0 auto;
+	overflow:hidden;
+	padding:0 0;
+	width:99%;
+}
+.upCtrl input{
+	border:0;
+	padding:0;
+	margin:0;
+	vertical-align: middle;
+}
+.title-border {
+    /*float: left;*/
+    display: inline-block;
+}
+.line{
+	display: inline-block;
+	/*float: left;*/
+	position:relative;
+	margin:0 0;
+	width:450px;
+	text-align:left;
+}
+.line span.span{
+	float:left;
+	margin: 0 10px 0 5px;
+} 
+.file{
+	position:absolute;
+	left:0;
+	width:333px;
+	top:0;
+	height:40px;
+	filter:alpha(opacity=0);
+	opacity:0;
+	cursor: pointer;
+} 
+.file1{
+	float:left;
+	margin: 0 8px;
+	z-index:1;
+	width:74px;
+ 	height:36px;
+ 	background:url("../../images/up-view.png") no-repeat 0 0;
+	text-indent:-9999px;
+	cursor: pointer;
+} 
+.upCtrl input.inputstyle{
+	background:transparent url("../../images/bg13.png") no-repeat 0 0;
+	border:none;
+	width:223px;
+	float:left;
+	height:36px;
+	padding: 5px;
+	line-height:36px;
+	background-color:#fafbfb;
+	z-index:99;
+}
+.upCtrl input.upDtlBtn{
+	width: 108px;
+	height: 36px;
+	margin-left: -8px;
+	background:url("../../images/up-btn.png") no-repeat 0 0;
+	cursor: pointer;
+}
+
+.detailIndex{
+	border-top: 1px solid #efefef;
+	clear: both;
+	margin-top: 15px;
+    padding: 15px 0 5px;
+}
+.detailIndex a, .show-detail-name{
+	display: none;
+	padding: 5px 15px;
+	background-color: #EBF1F1;
+	border: 1px solid #CCC;
+	color: #666;
+	cursor: pointer;
+}
+.detailIndex a:hover{
+	/*color: #FF9955;*/
+}
+.detailIndex a.load_img{
+	display: inline-block;
+	padding: 5px 12px;
+}
+.detailIndex a.load_img img{
+	vertical-align: middle;
+}
+.show-detail-name{
+	cursor: default;
+}
+
+.submitBtn{
+	/*width: 76px;
+	height: 30px;
+	background:url(../images/submit1.jpg) no-repeat 0 0;*/
+	background: #389eb7 none repeat scroll 0 0;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+    font-size: 16px;
+    height: 40px;
+    width: 30%;
+}
+/* 上传控件 */

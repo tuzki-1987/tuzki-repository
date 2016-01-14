@@ -1,0 +1,104 @@
+<!-- 按影厅显示 -->
+<link type="text/css" rel="stylesheet" href="css/tools/select2.css" />
+<link type="text/css" rel="stylesheet" href="css/show-sch/intelligent-sch.css" />
+
+<div class="container-fluid">
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">影院票房上传</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">系统排期生成</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">票房明细比较</a></li>
+	            <li class="dropdown active">
+	            	<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">排期展示</a>
+	            	<ul class="dropdown-menu sch-sub-nav">
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">排期展示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅显示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅名称显示</a></li>
+		          	</ul>
+	            </li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+    <!-- 页面内容区 -->
+	<div class="div-box">
+
+		<!-- 按影厅显示 -->
+	    <div id="show_sch_script" class="sch-data-area">
+	        <div class="block-title sch-title"><span>按影厅显示</span></div>
+	        <div class="block-cnt sch-cnt">
+	        	<div class="show-sch-box">
+		            <!-- 条件区域 -->
+		            <div class="show-schdata-box">
+		                <div class="yy_name">
+		                    <ul>
+		                        <li>
+		                            <div class="time-box-sch">
+		                                <div class="profile">
+		                                    <div class="content">
+		                                        <select required="true" name="schFilmList" id="sch_film_list">
+		                                            <!-- <option value="" label="">请选择影片</option>
+		                                            <option value="1" label="1">洛克王国4：出发！巨人谷</option>
+		                                            <option value="2" label="2">爱之初体验</option>
+		                                            <option value="3" label="3">非你勿扰</option>
+		                                            <option value="4" label="4">白雪公主之神秘爸爸</option> -->
+		                                        </select>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </li>
+		                        
+		                        <li class="time-search">
+		                            <div class="time_search" id="showschedule">
+		                                <input id="temptime" class="time Wdate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, onpicked:searchByDateForFilmSch})" value="" />
+		                                <input type="button" class="sh" id="searchFilm"/>
+		                            </div>
+		                        </li>
+		                        <li class="right-1 hall-down"><a href="javascript:;" id="downloadSche" class="func-btn">下载</a></li>
+		                        <li class="right-1 mid-3"><a href="javascript:;" id="createImage" class="func-btn" onclick="startCanvas();">转化为图片</a></li>
+		                        <div class="clean"></div>
+		                    </ul>
+		                </div>
+		            </div>
+		            <!-- 条件区域 -->
+
+		            <!-- 数据区域 -->
+		            <div id="showByFilmNameDiv" class="yting">
+		                <table width="100%" border="0" cellspacing="0" cellpadding="0" id="showByFilmName">
+		                    <!-- <tr>
+		                        <td style="text-align: left;">
+		                            <img src="images/tip.png" class="tip-light" />
+		                            <span class="tip-text-nodata pdlt10 fs20 clr8">暂无数据，您可在生成排片后查看</span>
+		                        </td>
+		                    </tr> -->
+		                </table>
+		            </div>
+		            <!-- 数据区域 -->
+		        </div>
+	        </div>
+	    </div>
+	    <!-- 按影厅显示 -->
+
+	</div>
+	<!-- 页面内容区 -->
+</div>
+
+<!-- 图片容器 -->
+<div id="imageContainer" class="image-container">
+    <p class="image-container-tip"><span>提示: </span>[下载] 功能只支持 火狐、谷歌、360安全浏览器</p>
+    <a href="javascript:;" download="" id="down_canvas_image" class="down-canvas-btn">下载</a>
+    <a href="javascript:;" class="image-close" onclick="closeCanvas();"></a>
+    <canvas id="canvasSch" class="canvas-sch" width="380" height="600"></canvas>
+</div>
+<!-- 图片容器 -->
+
+<script type="text/javascript" src="scripts/lib/jquery.selectui.js"></script>
+<script type="text/javascript" src="scripts/show-sch/show_movie_name.js"></script>
+<script type="text/javascript" src="scripts/canvas/canvas2image.js"></script>
+<script type="text/javascript" src="scripts/canvas/create-canvas.js"></script>
+<script type="text/javascript">
+	movieNameInit();
+</script>

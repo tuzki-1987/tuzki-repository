@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 上传票房 */
+.group-cnt{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    padding: 15px;
+}
+
+.cinema-lists-box{}
+
+.cinema-upload-block{
+    background-color: #fff;
+    border: 1px solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 15px auto;
+    padding: 5px 0;
+}
+.active-div{
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.cinema-upload-tip{
+    margin: 0 auto;
+    width: 97%;
+}
+
+.cinema-upload-tip span{
+    color: #666;
+    font-size: 15px;
+}
+
+.cinema-upload-tip span.sp-num{
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 5px;
+}
+
+.cinema-upload-tip span.upload-all-cinema{}
+
+.cinema-upload-tip span.upload-done-cinema{
+    color: #07637d;
+}
+
+.cinema-upload-tip span.upload-wait-cinema{
+    color: #f30;
+}
+
+.upload-sp1{}
+
+.upload-sp2{}
+
+.cn-box{
+    /*border: 1px solid #f7f7f7;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.cn-color{
+    color: #07637d;
+}
+
+.up-boff-box, .boff-box{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    width: 980px;
+}
+
+.modal-header {
+    padding: 0 15px;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.modal-header h3 span.sch-date{
+    color: #666;
+}
+
+.layer-t {
+    color: #07637d;
+    padding-left: 20px;
+}

@@ -1,0 +1,301 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* common */
+.data-block{
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.div-box{
+	margin: 10px 0;
+}
+
+.div-data{
+	padding: 10px;
+}
+
+/*排期展示二级菜单*/
+.sch-sub-nav{
+	width: 100%;
+}
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover{
+	/*重写Bootstrap中的打开时的左边线颜色*/
+	border-color: #fff;
+}
+/*排期展示二级菜单*/
+
+.mb0{
+	margin-bottom: 0;
+}
+
+.fl{
+	display: inline;
+	float: left;
+}
+
+.fr{
+	display: inline;
+	float: right;
+}
+
+.clean {
+	clear: both;
+}
+/* clearfix */
+.clearfix {
+	display: block;
+	height: 0;
+	line-height: 0;
+	font-size: 0
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/*标题*/
+.block-title{
+	background-color: #f6f5f5;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    height: 45px;
+    line-height: 45px;
+    text-indent: 1em;
+}
+
+.block-title span{
+	color: #07637d;
+	font-size: 16px;
+}
+
+/*标题右侧按钮*/
+.self-btn{
+	font-size: 14px;
+	margin: 5px;
+    padding: 6px 12px;
+}
+
+.block-cnt{
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-top: none;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    padding: 15px;
+}
+
+.box-total-tbl{
+    margin-bottom: 0;
+	width: 100%;
+}
+
+.box-total-tbl > thead > tr > th, .box-total-tbl > tbody > tr > td, .analysis-total-tbl > thead > tr > th, .analysis-total-tbl > tbody > tr > td, .totalTr{
+	color: #666;
+}
+
+/*按钮组样式*/
+.show-analysis-data-label{
+    margin-bottom: 4px;
+}
+
+.analysis-btn-label, .boxoffice-btn-label{
+    background-color: #F6F5F5;
+    color: #999;
+}
+
+.show-analysis-data-label button.active{
+    background-color: #fff;
+    color: #07637d;
+}
+
+.quick-btn{}
+.cutoff-date{
+	color: #777;
+    font-weight: normal;
+}
+.user-set-date {
+    height: 34px;
+    margin: 5px auto;
+    text-align: left;
+    width: 120px;
+}
+.time_search {
+    background: url("../images/bg11.png") no-repeat scroll 0 0;
+}
+.time_search .topFiveFilmTime, .time_search .time {
+    background: transparent;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 13px;
+    height: 33px;
+    line-height: 33px;
+    margin-left: -15px;
+    padding-left: 8px;
+    vertical-align: top;
+    width: 89px;
+}
+.time_search .sh {
+    background: url("../images/calendar-icon.png") no-repeat scroll center center;
+    border: none;
+    cursor: pointer;
+    height: 34px;
+    position: absolute;
+    width: 36px;
+}
+
+/* 建设中 */
+.build-page{
+	color: #666;
+	font-size: 16px;
+	font-weight: 600px;
+	text-align: center;
+}
+
+.build-page img{
+	height: 50px;
+	vertical-align: middle;
+	width: 50px;
+}
+
+.build-page span{
+	display: inline-block;
+	padding: 0 0 0 10px;
+}
+
+/* 返回顶部 */
+.fixedRight{
+	bottom: 50px;
+    position: fixed;
+    right: 15px;
+    width: 52px;
+    z-index: 99900;
+}
+
+.fixedRight .toTop{
+	background: url("../images/indextop1.png") no-repeat scroll;
+    display: none;
+    height: 37px;
+    margin: 5px auto 0;
+    text-indent: -999em;
+    width: 37px;
+}
+
+.fixedRight .toTop:hover{
+	background: url("../images/indextop2.png") no-repeat scroll;
+    display: none;
+    height: 37px;
+    margin: 5px auto 0;
+    text-indent: -999em;
+    width: 37px;
+}
+
+.fixedRight .toTop a{
+	color: #333;
+    text-decoration: none;
+}
+
+/* 二级导航 */
+.sub-nav{
+	background-color: #fefefe;
+	display: none;
+	position: relative;
+}
+
+.sub-nav a{
+	border-bottom: 1px solid #efefef;
+	color: #666;
+	display: block;
+    height: 35px;
+    line-height: 35px;
+    text-indent: 3.5em;
+}
+
+.sub-nav a:hover{
+	text-decoration: none;
+}
+
+.sub-nav a.active{
+	background-color: #f7f7f7;
+    color: #428bca;
+}
+
+/* 信息提示框 */
+.tipMsg, .delContainer{
+	display: none;
+	position: absolute;
+	min-width: 150px;
+	height: auto;
+	padding: 15px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: normal;
+	letter-spacing: 1px;
+	top: 0;
+	left: 0;
+}
+.tipMsg{
+	border: 10px solid #EBEBEB;
+	background-color: #F7F7F7;
+	color: #ff6b00;
+	letter-spacing: 1.5px;
+	z-index: 1111;
+}
+
+.delContainer{
+	border: 10px solid #EBEBEB;
+	background-color: #F7F7F7; color: #333;
+	z-index: 1112;
+}
+
+.delContainer .userText{
+	color: #555;
+	font-size: 16px;
+	text-align: center;
+	height: 45px;
+	line-height: 45px;
+}
+
+.delContainer .del_table{
+	margin: 0 auto;
+}
+
+.delContainer .del_table input{
+	font-size: 14px;
+	font-weight: 600;
+    height: 30px;
+    width: 70px;
+}
+.delContainer .del_table input.sure{
+	color: #07637d;
+}
+.delContainer .del_table input.cancle{
+	color: #f8532a;
+}
+
+.zhezhao, .zhezhao1, .zhezhao2{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	z-index:999;
+	-moz-opacity:0.2;
+	opacity:0.2;
+	filter:alpha(opacity=20);
+}

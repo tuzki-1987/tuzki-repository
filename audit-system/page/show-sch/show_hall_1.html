@@ -1,0 +1,85 @@
+<!-- 按影厅显示 -->
+<link type="text/css" rel="stylesheet" href="css/tools/select2.css" />
+<link type="text/css" rel="stylesheet" href="css/show-sch/intelligent-sch_1.css" />
+
+
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">影院票房上传</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">系统排期生成</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">票房明细比较</a></li>
+	            <li class="dropdown active">
+	            	<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">排期展示</a>
+	            	<ul class="dropdown-menu sch-sub-nav">
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">排期展示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅显示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅名称显示</a></li>
+		          	</ul>
+	            </li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+    <!-- 页面内容区 -->
+	<div class="div-box">
+
+		<!-- 按影厅显示 -->
+	    <div id="show_sch_script" class="sch-data-area">
+	        <div class="block-title sch-title"><span>按影厅显示</span></div>
+	        <div class="block-cnt sch-cnt">
+	        	<div class="show-sch-box">
+		            <!-- 条件区域 -->
+		            <div class="show-schdata-box">
+		                <div class="yy_name">
+		                    <ul>
+		                        <li>
+		                            <div class="time-box-sch">
+		                                <div class="profile">
+		                                    <div class="content">
+		                                        <select required="true" name="hallList" id="hall_list">
+		                                            <!-- <option value="1号4K厅" label="1号4K厅">1号4K厅</option>
+		                                            <option value="2号4K厅" label="2号4K厅">2号4K厅</option>
+		                                            <option value="3号4K厅" label="3号4K厅">3号4K厅</option>
+		                                            <option value="4号4K厅" label="4号4K厅">4号4K厅</option> -->
+		                                        </select>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </li>
+		                        
+		                        <li class="time-search">
+		                            <div class="time_search" id="showschedule">
+		                                <input id="temptime" class="time Wdate" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, onpicked:searchByDateForHallSch})" value="" />
+		                                <input type="button" class="sh" id="searchFilm"/>
+		                            </div>
+		                        </li>
+		                        <li class="right-1 hall-down"><a href="javascript:;" id="downloadSche" class="func-btn">下载</a></li>
+		                        <div class="clean"></div>
+		                    </ul>
+		                </div>
+		            </div>
+		            <!-- 条件区域 -->
+
+		            <!-- 数据区域 -->
+		            <div id="showByFilmHall" class="yting">
+		                <!-- <img src="images/tip.png" class="tip-light" />
+		                <span class="tip-text-nodata pdlt10 fs20 clr8">暂无数据，您可在生成排片后查看</span> -->
+		            </div>
+		            <!-- 数据区域 -->
+		        </div>
+	        </div>
+	    </div>
+	    <!-- 按影厅显示 -->
+
+	</div>
+	<!-- 页面内容区 -->
+
+
+<script type="text/javascript" src="scripts/lib/jquery.selectui.js"></script>
+<script type="text/javascript" src="scripts/show-sch/show_hall_1.js"></script>
+<script type="text/javascript">
+	hallInit();
+</script>

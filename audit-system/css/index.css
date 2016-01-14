@@ -1,0 +1,235 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  background-color: #f9f9f9;
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    /*background-color: #f5f5f5;*/
+    background-color: #f1f2f7;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+.nav li.alone-menu{}
+.nav li.cinema-menu{
+  display: none;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    background-color: #f9f9f9;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/*
+ * Login User Info
+ */
+.login-info {
+  color: #c9c5c5;
+  height: 50px;
+  line-height: 50px;
+}
+
+.login-info li.login-info-span-title {
+  padding: 0 10px;
+}
+
+/*
+* Logout
+*/
+.navbar-nav > li > a.logout{
+  margin-top: 9px;
+  padding: 5px 8px;
+}
+
+/*
+* Quick Nav
+*/
+.nav-menus2{
+  display: none;
+}
+
+/*
+* Back
+*/
+.back-btn-box{
+  cursor: pointer;
+  margin-top: 15px;
+  padding-left: 20px;
+}
+.back-btn{}
+
+/*
+* Location Show
+*/
+.location-box{
+  color: #dddfe1;
+  cursor: pointer;
+  display: none;
+  height: 50px;
+  padding: 0 20px;
+}
+.location-box-bg{
+  background-color: #455166;
+}
+
+.location{
+  background-color: #3b475c;
+}
+
+.navbar-nav > li > a{
+  margin-top: 6px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+/*
+* Cinema List Pannel
+*/
+.pannle-box{
+  background-color: #455166;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+  color: #f1f1f1;
+  display: none;
+  height: auto;
+  /*max-height: 230px;*/
+  left: 0;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.pannle-search-box{}
+
+.pannle-search{
+  background: none;
+  border: 1px solid #29354a;
+  border-radius: 5px;
+  color: #eee;
+  padding: 5px 0 5px 5px;
+  width: 100%;
+}
+
+.pannle-box a{
+  border: 1px solid #455166;
+  color: #ddd;
+  display: block;
+  font-size: 15px;
+  margin: 3px 0;
+  padding: 3px 5px;
+}
+
+.pannle-box a:hover{
+  border: 1px solid #f7f7f7;
+  border-radius: 5px;
+  color: #f7f7f7;
+  text-decoration: none;
+}
+
+.pn-no-data{
+  color: #f30;
+  display: none;
+  margin-bottom: 0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/*
+* User Guide
+*/
+a.user-guide-jh{
+  color: #ff3300;
+}

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 影院导航 */
+.region-area{
+	margin-bottom: 20px;
+}
+
+.ra-title{}
+
+.ra-cnt{}
+
+.ra-btn{
+	/* 重写Bootstrap中的font-size、padding */
+	float: right;
+    font-size: 14px;
+    margin: 5px;
+    padding: 6px 12px;
+}
+
+.cinemas-cnt{}
+
+.cinemas-cnt a{
+    padding: 5px 10px;
+}
+
+.ra-create-box{
+	background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    height: 178px;
+    margin: 190px auto 0;
+    width: 400px;
+}
+
+.modal-header{
+	padding: 0 15px;
+}
+.modal-header h3{
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+.modal-body{}
+.modal-body p{
+	margin: 0;
+}
+
+.modal-footer{}

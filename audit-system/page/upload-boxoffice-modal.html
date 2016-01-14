@@ -1,0 +1,81 @@
+<!-- 影院票房上传 模块加载模板 -->
+<link rel="stylesheet" type="text/css" href="css/cinema-nav/cinema-nav.css" />
+<link rel="stylesheet" type="text/css" href="css/cinema-upload-modal/upload-file-model.css" />
+<link rel="stylesheet" type="text/css" href="css/cinema-upload-modal/box_office_report-detail.css" />
+<link rel="stylesheet" type="text/css" href="css/cinema-upload-modal/box-total.css" />
+
+<div class="container-fluid">
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li class="active"><a href="javascript:;" onclick="handleClickCinemaMenu(this);">影院票房上传</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">系统排期生成</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">票房明细比较</a></li>
+	            <li class="dropdown">
+	            	<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">排期展示</a>
+	            	<ul class="dropdown-menu sch-sub-nav">
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">排期展示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅显示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅名称显示</a></li>
+		          	</ul>
+	            </li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+    <!-- 数据区容器[内页导航菜单切换] -->
+	<div class="div-box data-container">
+		<!-- 影院票房上传 区域1 -->
+		<div class="cinema-up-area1">
+			<!-- 上传明细票房 -->
+			<div class="div-data data-block">
+				<div class="upCtrl">
+					<div id="reportTitle" class="title-border fs13">请上传票房明细：</div>
+					<!-- 上传 start -->
+					<div class="line">
+						<!-- <form id="upFileForm" action="" method="post" enctype="multipart/form-data"> -->
+							<span class="span">
+								<input name="" type="text" id="viewfile"
+								 onmouseout="document.getElementById('uploadDetail').style.display='none';"
+								 class="inputstyle" readonly="readonly" />
+							</span>
+							<label for="unload" onmouseover="document.getElementById('uploadDetail').style.display='block';" class="file1">浏览...</label>
+							<input type="file" name="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';" class="file" id="uploadDetail" />&nbsp;&nbsp;
+							<input type="button" id="upDtlBtn" class="upDtlBtn" name="upDtlBtn" value="" onclick="upScheDetail(this.id);" value="上传并分析" />
+						<!-- </form> -->
+					</div>
+					<!-- 上传 end -->
+
+					<!-- 明细名 -->
+					<div id="detailIndex" class="detailIndex">
+						<!-- 不同票房明细切换显示的判断条件 -->
+						<input type="hidden" name="titleContainer" id="titleContainer" value="" />
+						<!-- <span class="fs13">查看明细：</span><a href="">明细标题</a> -->
+					</div>
+					<!-- 明细名 -->
+				</div>
+			</div>
+			<!-- 上传明细票房 -->
+
+			<!-- 明细容器 -->
+			<div id="detailContainer" class="detailContainer div-data data-block"></div>
+			<!-- 明细容器 -->
+		</div>
+		<!-- 影院票房上传 区域1 -->
+	</div>
+	<!-- 数据区容器[内页导航菜单切换] -->
+</div>
+
+<script type="text/javascript" src="scripts/tools/ajaxFileUpload.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-modal/box_office_report.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-modal/box_office_report-detail.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-modal/auto-prompt.js"></script>
+<script type="text/javascript">
+	// loginStatus();
+	// loadBoxOfficeReport();
+
+	// 声明自动提示类对象
+	var ap = new autoPrompt();
+</script>

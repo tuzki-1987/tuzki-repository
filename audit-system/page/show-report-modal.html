@@ -1,0 +1,158 @@
+<!-- 查看报告 加载页 -->
+<link rel="stylesheet" type="text/css" href="css/show-report/show-report.css" />
+
+<div class="container-fluid">
+    <!-- 数据区容器 -->
+	<div class="div-box data-container">
+			<!-- 导出 -->
+			<div class="down-report-box">
+				<button class="btn btn-warning" onclick="downReport();">导出报告</button>
+			</div>
+
+			<!-- 影院实际排片 -->
+			<div id="totalDataArea_0" class="total-data-area">
+				<div class="block-title">
+					<span>影院实际排片情况</span>
+				</div>
+
+				<div class="block-cnt">
+					<table id="cinemaRealTbl" class="table table-striped cinema-sch-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="cinema_sch_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>影片占比</th>
+								<th>票房</th>
+								<th>票房占比</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+
+			<!-- 系统高于实际 描述信息 -->
+			<div class="sys-more-cinema-box">
+				<!-- 上述统计证明 -->
+				<div class="prove-box">
+					<h3 class="h3-prove">上述统计证明：</h3>
+					<div class="prove-cnt"><!-- 描述信息 --></div>
+				</div>
+			</div>
+			<!-- 系统高于实际 描述信息 -->
+
+			<!-- 影院实际票房 -->
+			<!-- <div id="totalDataArea_1" class="total-data-area">
+				<div class="block-title">
+					<span>影院实际票房情况</span>
+				</div>
+
+				<div class="block-cnt">
+					<table id="cinemaRealTbl" class="table table-striped cinema-real-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="cinema_real_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>票房</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div> -->
+
+			<!-- 系统排片 -->
+			<div id="totalDataArea_2" class="total-data-area">
+				<div class="block-title">
+					<span>系统排片情况</span>
+				</div>
+
+				<div class="block-cnt">
+					<table id="sysSchTbl" class="table table-striped sys-sch-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="sys_sch_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>影片占比</th>
+								<th>票房</th>
+								<th>票房占比</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+
+			<!-- 系统可达票房 -->
+			<!-- <div id="totalDataArea_3" class="total-data-area">
+				<div class="block-title">
+					<span>系统可达票房情况</span>
+				</div>
+
+				<div class="block-cnt">
+					<table id="sysRealTbl" class="table table-striped sys-real-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="sys_real_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>票房</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div> -->
+
+			<!-- 系统高于实际 描述信息 -->
+			<div class="sys-more-cinema-box">
+				<!-- 结论 -->
+				<div class="conclusion-box">
+					<span class="conclusion-title">结论：</span>
+					<span class="conclusion-cnt"><!-- 结论信息 --></span>
+				</div>
+
+				<!-- 分析依据 -->
+				<div class="desc-1">对票房分析依据如下：</div>
+
+				<!-- 相同影片分析 -->
+				<div class="same-film-ana-box">
+					<div class="same-film-title desc-title">相同影片分析：</div>
+					<div class="same-film-ana-cnt"><!-- 描述信息 --></div>
+				</div>
+
+				<!-- 以下影片只在实际排片中出现 -->
+				<div class="desc-2 desc-real-box">
+					<div class="desc-2-title desc-title">以下影片只在实际排片中出现</div>
+					<div class="desc-2-cnt desc-real"><!-- 描述信息 --></div>
+				</div>
+
+				<!-- 以下影片只在系统推荐中出现 -->
+				<div class="desc-2 desc-sys-box">
+					<div class="desc-2-title desc-title">以下影片只在系统推荐中出现</div>
+					<div class="desc-2-cnt desc-sys"><!-- 描述信息 --></div>
+				</div>
+
+				<!-- 综上所述 -->
+				<div class="summary-box">
+					<div class="summary-title">综上所述：</div>
+					<div class="summary-cnt"><!-- 描述信息 --></div>
+				</div>
+			</div>
+			<!-- 系统高于实际 描述信息 -->
+
+			<!-- 实际高于系统 描述信息 -->
+			<div class="cinema-more-sys-box">
+				<!-- 评估总结 -->
+				<div class="report-description-box">
+					<p>
+						<span class="report-title">评估总结：</span>
+						<span class="report-cnt"><!-- 评估描述信息 --></span>
+					</p>
+				</div>
+			</div>
+			<!-- 实际高于系统 描述信息 -->
+			
+	</div>
+	<!-- 数据区容器 -->
+</div>
+
+<script type="text/javascript" src="scripts/cinema-report/cinema-report.js"></script>
+<script type="text/javascript">
+	// loadCinemaReport();
+</script>

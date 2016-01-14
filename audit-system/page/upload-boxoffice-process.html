@@ -1,0 +1,245 @@
+<!-- 影院票房上传 -->
+<link rel="stylesheet" type="text/css" href="css/cinema-nav/cinema-nav.css" />
+<link rel="stylesheet" type="text/css" href="css/cinema-upload/upload-file-model.css" />
+<link rel="stylesheet" type="text/css" href="css/cinema-upload/box_office_report-detail.css" />
+<link rel="stylesheet" type="text/css" href="css/cinema-upload/box-total.css" />
+
+<div class="container-fluid">
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li class="active"><a href="javascript:;" onclick="handleClickCinemaMenu(this);">影院票房上传</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">系统排期生成</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">票房明细比较</a></li>
+	            <li class="dropdown">
+	            	<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">排期展示</a>
+	            	<ul class="dropdown-menu sch-sub-nav">
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">排期展示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅显示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅名称显示</a></li>
+		          	</ul>
+	            </li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+    <!-- 数据区容器[内页导航菜单切换] -->
+	<div class="div-box data-container">
+		<!-- 影院票房上传 区域1 -->
+		<div class="cinema-up-area1">
+			<!-- 上传明细票房 -->
+			<div class="div-data data-block">
+				<div class="upCtrl">
+					<div id="reportTitle" class="title-border fs13">请上传票房明细：</div>
+					<!-- 上传 start -->
+					<div class="line">
+						<!-- <form id="upFileForm" action="" method="post" enctype="multipart/form-data"> -->
+							<span class="span">
+								<input name="" type="text" id="viewfile"
+								 onmouseout="document.getElementById('uploadDetail').style.display='none';"
+								 class="inputstyle" readonly="readonly" />
+							</span>
+							<label for="unload" onmouseover="document.getElementById('uploadDetail').style.display='block';" class="file1">浏览...</label>
+							<input type="file" name="file" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';" class="file" id="uploadDetail" />&nbsp;&nbsp;
+							<input type="button" id="upDtlBtn" class="upDtlBtn" name="upDtlBtn" value="" onclick="upScheDetail(this.id);" value="上传并分析" />
+						<!-- </form> -->
+					</div>
+					<!-- 上传 end -->
+
+					<!-- 明细名 -->
+					<div id="detailIndex" class="detailIndex">
+						<!-- 不同票房明细切换显示的判断条件 -->
+						<input type="hidden" name="titleContainer" id="titleContainer" value="" />
+						<!-- <span class="fs13">查看明细：</span><a href="">明细标题</a> -->
+					</div>
+					<!-- 明细名 -->
+				</div>
+			</div>
+			<!-- 上传明细票房 -->
+
+			<!-- 明细容器 -->
+			<div id="detailContainer" class="detailContainer div-data data-block"></div>
+			<!-- 明细容器 -->
+
+			<!-- 票房汇总数据 -->
+			<div class="total-data-area">
+				<div class="block-title">
+					<span>票房成绩单</span>
+					<div class="quick-btn fr">
+						<!-- <label class="cutoff-date fl">截止日期：</label>
+						<div class="time_search user-set-date fl">
+							<input id="queryDate" class="Wdate topFiveFilmTime" value="" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, position:{left:-15}, onpicked:queryBoxOfficeTotal})">
+							<input class="sh" type="button">
+							<script type="text/javascript">document.getElementById("queryDate").value = getCurDate();</script>
+						</div> -->
+						<button type="button" class="btn btn-lg btn-info analysis-btn-process fr" onclick="handleEventAnalysis();">场次分析</button>
+					</div>
+				</div>
+
+				<div class="block-cnt">
+					<input type="hidden" name="noTotalDataFlag" id="noTotalDataFlag" value="" />
+					<table id="boxTotalTbl" class="table table-striped box-total-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="total_data_title">
+								<th>影片名称</th>
+								<th>放映日期</th>
+								<th>单日票房</th>
+								<th>单日场次</th>
+								<th>单日人次</th>
+								<th>平均票价</th>
+								<th>场均人次</th>
+								<th>上座率</th>
+								<th>场均票房</th>
+							</tr>
+						</thead>
+						<!-- <tr>
+							<td colspan="9" align="center"><img src="images/loading.gif" /></td>
+						</tr> -->
+					</table>
+				</div>
+			</div>
+			<!-- 票房汇总数据 -->
+		</div>
+		<!-- 影院票房上传 区域1 -->
+
+		<!-- 影院票房上传 区域2 -->
+		<div class="cinema-up-area2">
+			<div class="div-data data-block row show-analysis">
+				<div class="col-xs-6 col-sm-4 show-analysis-back"><button class="btn btn-default" onclick="handleBack();">返回</button></div>
+				<div class="col-xs-6 col-sm-4 show-analysis-mid">今日实际场次分析</div>
+				<div class="col-xs-6 col-sm-4 show-analysis-next"><button class="btn btn-success" onclick="handleNext();">下一步</button></div>
+			</div>
+
+			<!-- 各时段统计结果 -->
+			<div class="show-analysis-data-area gold-analysis-area">
+				<div class="block-title">
+					<!-- <span>黄金时段场次统计</span> -->
+					<!-- 选项卡标签 -->
+					<div class="btn-group show-analysis-data-label" role="group">
+						<button type="button" class="btn btn-default analysis-btn-label active">黄金时段场次统计</button>
+						<button type="button" class="btn btn-default analysis-btn-label">非黄金时段场次统计</button>
+						<button type="button" class="btn btn-default analysis-btn-label">总场次统计</button>
+					</div>
+					<!-- 选项卡标签 -->
+					<div class="analysis-note fr">注：票房以元为单位</div>
+				</div>
+			
+				<div class="block-cnt">
+					<!-- 黄金时段统计 -->
+					<table id="goldNnalysisTbl" class="table table-striped analysis-total-tbl gold-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="gold_analysis_data_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>场均票房</th>
+								<th>上座率</th>
+								<th>票房</th>
+							</tr>
+						</thead>
+						<!-- <tr>
+							<td colspan="4">
+								<div>
+									<img src='images/tip.png' width='80' />
+									<span class='tip-text-nodata fs20 clr8'>暂无数据，您可在上传票房后查看</span>
+								</div>
+							</td>
+						</tr> -->
+					</table>
+					<!-- 黄金时段统计 -->
+
+					<!-- 非黄金时段统计 -->
+					<table id="generalNnalysisTbl" class="table table-striped analysis-total-tbl general-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="general_analysis_data_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>场均票房</th>
+								<th>上座率</th>
+								<th>票房</th>
+							</tr>
+						</thead>
+					</table>
+					<!-- 非黄金时段统计 -->
+
+					<!-- 全时段统计 -->
+					<table id="alldayNnalysisTbl" class="table table-striped analysis-total-tbl allday-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="allday_analysis_data_title">
+								<th>影片名称</th>
+								<th>场次</th>
+								<th>场均票房</th>
+								<th>上座率</th>
+								<th>票房</th>
+							</tr>
+						</thead>
+					</table>
+					<!-- 全时段统计 -->
+				</div>
+			</div>
+			<!-- 各时段统计结果 -->
+
+			<!-- 非黄金时段统计 --
+			<div class="show-analysis-data-area general-analysis-area">
+				<div class="block-title">
+					<span>非黄金时段场次统计</span>
+					<div class="analysis-note fr">注：票房以元为单位</div>
+				</div>
+			
+				<div class="block-cnt">
+					<table id="generalNnalysisTbl" class="table table-striped box-total-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="general_analysis_data_title">
+								<th width="">影片名称</th>
+								<th width="">场次</th>
+								<th width="">场均票房</th>
+								<th width="">票房</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<!-- 非黄金时段统计 -->
+
+			<!-- 全时段统计 --
+			<div class="show-analysis-data-area allday-analysis-area">
+				<div class="block-title">
+					<span>总场次统计</span>
+					<div class="analysis-note fr">注：票房以元为单位</div>
+				</div>
+			
+				<div class="block-cnt">
+					<table id="alldayNnalysisTbl" class="table table-striped box-total-tbl" cellspacing="0" cellpadding="0" border="0">
+						<thead>
+							<tr id="allday_analysis_data_title">
+								<th width="">影片名称</th>
+								<th width="">场次</th>
+								<th width="">场均票房</th>
+								<th width="">票房</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<!-- 全时段统计 -->
+		</div>
+		<!-- 影院票房上传 区域2 -->
+	</div>
+	<!-- 数据区容器[内页导航菜单切换] -->
+</div>
+
+<script type="text/javascript" src="scripts/tools/ajaxFileUpload.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-process/box_office_report.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-process/box_office_report-detail.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-process/box_office_report-score.js"></script>
+<script type="text/javascript" src="scripts/cinema-upload-process/auto-prompt.js"></script>
+<script type="text/javascript">
+	$(".nav").find("li:eq(1)").addClass("active");
+	// alert("here : "+cinemaObj.id+" - "+cinemaObj.name)
+	// loginStatus();
+	// loadBoxOfficeReport();
+
+	// 声明自动提示类对象
+	var ap = new autoPrompt();
+</script>

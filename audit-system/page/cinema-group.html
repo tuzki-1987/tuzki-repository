@@ -1,0 +1,242 @@
+<!-- 影院分组管理 -->
+<link rel="stylesheet" type="text/css" href="css/cinema-group/cinema-group.css" />
+
+<div class="container-fluid">
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li><a href="javascript:;">影院票房上传</a></li>
+	            <li><a href="javascript:;">系统排期生成</a></li>
+	            <li><a href="javascript:;">票房明细比较</a></li>
+	            <li><a href="javascript:;">排期展示</a></li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+    <!-- 分组操作 -->
+    <div class="group-box">
+	    <ul id="manageTabs" class="nav nav-tabs">
+			<li role="presentation" class="active" onclick=""><a href="#cinemaGroup">影院分组</a></li>
+			<li role="presentation" onclick=""><a href="#manageGroup">管理分组</a></li>
+		</ul>
+
+		<div class="group-cnt tab-content">
+			<!-- 影院分组选项卡内容 -->
+			<div role="tabpanel" class="region-area tab-pane active" id="cinemaGroup">
+				<div class="block-title ra-title">
+					<div class="btn title-btn cinema-group-list">
+						<button type="button" class="btn btn-lg btn-default cinema-group-btn default-group active" data="" onclick="loadCinemaListOfTheatres(0, '');">默认分组</button>
+						<!-- <button type="button" class="btn btn-lg btn-default cinema-group-btn" data="1" onclick="loadCinemaListOfTheatres(1, '');">分组一</button>
+						<button type="button" class="btn btn-lg btn-default cinema-group-btn" data="2" onclick="loadCinemaListOfTheatres(2, '');">分组二</button>
+						<button type="button" class="btn btn-lg btn-default cinema-group-btn" data="3" onclick="loadCinemaListOfTheatres(3, '');">分组三</button>
+						<button type="button" class="btn btn-lg btn-default cinema-group-btn" data="4" onclick="loadCinemaListOfTheatres(4, '');">分组四</button> -->
+					</div>
+				</div>
+				<div class="block-cnt cinemas-cnt hide-block">
+					<!-- 影院列表内容 -->
+				</div>
+			</div>
+
+			<!-- 管理分组选项卡内容 -->
+			<div role="tabpanel" class="region-area tab-pane" id="manageGroup">
+				<div class="block-title">
+					<span class="fs14">分组列表</span>
+					<button type="button" class="btn btn-lg btn-success ra-btn" onclick="openCinemaListLayer(this, event);">分配影院</button>
+					
+					<button type="button" class="btn btn-lg btn-default ra-btn" onclick="delGroup(this);">删除</button>
+					<button type="button" class="btn btn-lg btn-info ra-btn" onclick="openCreateLayer(this, event);">新建</button>
+				</div>
+
+				<div class="block-cnt manage-groups-cnt">
+					<!-- <p>请添加分组</p> -->
+					<!-- <a href="javascript:;" class="default-group active" onclick="handleClickDefaultGroupOfMng(this);">默认分组</a> -->
+					<!-- <a href="javascript:;">
+						<input type="radio" name='radioGroup' value="1" class="radio-ipt" id="chkbox_0" onchange="handleClickBox(this.id);" />
+						<label for="chkbox_0">分组一</label>
+					</a>
+					<a href="javascript:;">
+						<input type="radio" name='radioGroup' value="2" class="radio-ipt" id="chkbox_1" onclick="handleClickBox(this.id);" />
+						<label for="chkbox_1">分组二</label>
+					</a>
+					<a href="javascript:;">
+						<input type="radio" name='radioGroup' value="3" class="radio-ipt" id="chkbox_2" onclick="handleClickBox(this.id);" />
+						<label for="chkbox_2">分组三</label>
+					</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 新建分组 弹出框 -->
+	<div class="modal ra-create-box" id="myModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal" onclick="closeCreateLayer(this, event);">×</a>
+			<h3>新建分组</h3>
+		</div>
+
+		<div class="modal-body">
+			<p><input type="text" id="groupName" class="form-control" placeholder="输入分组名称" required autofocus /></p>
+		</div>
+		
+		<div class="modal-footer">
+			<a href="javascript:;" class="btn" data-dismiss="modal" onclick="closeCreateLayer(this, event);">关闭</a>
+			<a href="javascript:;" class="btn btn-primary" onclick="submitCreateGroup(this, event);">保存更新</a>
+		</div>
+	</div>
+	<!-- 新建分组 弹出框 -->
+
+	<!-- 分配影院 弹出框 -->
+	<div class="modal ra-cinemalist-box" id="myModal2">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal" onclick="closeCreateLayer(this, event);">×</a>
+			<h3>影院列表</h3>
+		</div>
+
+		<div class="modal-body cinemalist-body">
+			<p>
+				<!-- <a href="javascript:;">
+					<input type="checkbox" value="3" class="chkbox-cinema" id="cinemabox_0" onclick="" />
+					<label for="cinemabox_0">我的影院</label>
+				</a>
+				<a href="javascript:;">
+					<input type="checkbox" value="3" class="chkbox-cinema" id="cinemabox_1" onclick="" />
+					<label for="cinemabox_1">阜宁大地影院</label>
+				</a>
+				<a href="javascript:;">
+					<input type="checkbox" value="3" class="chkbox-cinema" id="cinemabox_2" onclick="" />
+					<label for="cinemabox_2">万达影院</label>
+				</a>
+				<a href="javascript:;">
+					<input type="checkbox" value="3" class="chkbox-cinema" id="cinemabox_3" onclick="" />
+					<label for="cinemabox_3">北京CBD影院</label>
+				</a>
+				<a href="javascript:;">
+					<input type="checkbox" value="3" class="chkbox-cinema" id="cinemabox_4" onclick="" />
+					<label for="cinemabox_4">上海浦发影院</label>
+				</a> -->
+			</p>
+		</div>
+		
+		<div class="modal-footer">
+			<a href="javascript:;" class="btn" data-dismiss="modal" onclick="closeCreateLayer(this, event);">关闭</a>
+			<a href="javascript:;" class="btn btn-primary" onclick="submitAddCinemaForGroup(this, event);">保存更新</a>
+		</div>
+	</div>
+	<!-- 分配影院 弹出框 -->
+	<!-- 分组操作 -->
+
+	<!-- 影院汇总列表 -->
+	<div class="cinema-area">
+		<div class="block-title ra-title">
+			<span>汇总统计</span>
+			<div class="quick-btn fr">
+				<label class="cutoff-date fl">查询日期：</label>
+				<div class="time_search user-set-date fl">
+					<input id="queryDate" class="Wdate topFiveFilmTime" value="" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, position:{left:-15}, maxDate:'%y-%M-%d', onpicked:queryBoxOfficeTotalForGroup})">
+					<input class="sh" type="button">
+					<script type="text/javascript">document.getElementById("queryDate").value = getCurDate();</script>
+				</div>
+				<!-- <button type="button" class="btn btn-lg btn-info analysis-btn fr" onclick="handleEventAnalysis();">场次分析</button> -->
+			</div>
+		</div>
+		<div class="block-cnt">
+			<table id="cinemaTatalTbl" class="table table-bordered">
+				<thead>
+					<th>影院名称</th>
+					<th>实际排片票房</th>
+					<th>参考排片票房</th>
+					<th>票房差额</th>
+					<th>评分</th>
+					<th>查看报告</th>
+					<th>明日排期</th>
+				</thead>
+				<tr>
+					<td>
+						<a id="535" onclick="handleClickCinema2(this, event);" data="1" href="javascript:;">咸阳奥斯卡国际影城</a>
+					</td>
+					<td onmouseenter="showClickLayer(this);">
+						<span class="td-num">50460</span>
+						<div class="click-check" onmouseleave="hideClickLayerSelf(this);" onclick="handleClickLayerLoadData(0, this, '咸阳奥斯卡国际影城', 535);" data="0">点击查看</div>
+					</td>
+					<td onmouseenter="showClickLayer(this);">
+						<span class="td-num">57512</span>
+						<div class="click-check" onmouseleave="hideClickLayerSelf(this);" onclick="handleClickLayerLoadData(1, this, '咸阳奥斯卡国际影城', 535);" data="1" style="display: block;">点击查看</div>
+					</td>
+					<td style="color: #05a93e;">-7052<img class="img-arrow" src="images/down.png"></td>
+					<td>53</td>
+					<td>
+						<a onclick="checkReport(this, 535, '咸阳奥斯卡国际影城');" href="javascript:;">查看</a>
+					</td>
+					<td>
+						<a onclick="createSchAndCheck(this, 535, 1);" href="javascript:;">生成&查看</a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<a id="533" onclick="handleClickCinema2(this, event);" data="1" href="javascript:;">大地五河县亿豪国际影城</a>
+					</td>
+					<td onmouseenter="showClickLayer(this);">
+						<span class="td-num">
+						<a id="533" onclick="handleClickUnUpload(this, event);" title="大地五河县亿豪国际影城" href="javascript:;">未上传</a>
+						</span>
+					</td>
+					<td onmouseenter="showClickLayer(this);">
+						<span class="td-num">---</span>
+					</td>
+					<td>---</td>
+					<td>---</td>
+					<td>---</td>
+					<td>---</td>
+				</tr>
+				<!-- <tr><td colspan="6"><center><img src='images/loading.gif' /></center></td></tr> -->
+			</table>
+		</div>
+	</div>
+	<!-- 影院列表 -->
+
+	<!-- 实际排片/参考排片 弹出框 -->
+	<div class="modal sch-box" id="schModal">
+		<div class="modal-header">
+			<!-- 预加载数据的影院ID -->
+			<input type="hidden" name="curCinemaID" id="curCinemaID" value="" />
+			<a class="close" data-dismiss="modal" onclick="closeCreateLayer(this, event);">×</a>
+			<h3 id="schTitle"><!-- 标题名字 --></h3>
+		</div>
+
+		<div class="modal-body sch-body">
+			<p>实际内容</p>
+		</div>
+		
+		<div class="modal-footer">
+			<a href="javascript:;" class="btn btn-default" data-dismiss="modal" onclick="closeCreateLayer(this, event);">关闭</a>
+		</div>
+	</div>
+	<!-- 实际排片/参考排片 弹出框 -->
+
+	<!-- 查看报告 弹出框 -->
+	<div class="modal report-box" id="reportModal">
+		<div class="modal-header">
+			<!-- 预加载数据的影院ID -->
+			<input type="hidden" name="curCinemaIDForReport" id="curCinemaIDForReport" value="" />
+			<a class="close" data-dismiss="modal" onclick="closeCreateLayer(this, event);">×</a>
+			<h3 id="reportTitle"><!-- 标题名字 --></h3>
+		</div>
+
+		<div class="modal-body report-body">
+			<p>实际内容</p>
+		</div>
+		
+		<div class="modal-footer">
+			<a href="javascript:;" class="btn btn-default" data-dismiss="modal" onclick="closeCreateLayer(this, event);">关闭</a>
+		</div>
+	</div>
+	<!-- 查看报告 弹出框 -->
+</div>
+
+<script type="text/javascript" src="scripts/cinema-group/cinema-group.js"></script>
+<script type="text/javascript">
+	// initCinemaMng();
+</script>

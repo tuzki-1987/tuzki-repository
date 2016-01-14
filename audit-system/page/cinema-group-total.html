@@ -1,0 +1,118 @@
+<!-- 所有影院票房多天汇总 -->
+<link rel="stylesheet" type="text/css" href="css/cinema-group/cinema-group.css" />
+
+<div class="container-fluid">
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li><a href="javascript:;">影院票房上传</a></li>
+	            <li><a href="javascript:;">系统排期生成</a></li>
+	            <li><a href="javascript:;">票房明细比较</a></li>
+	            <li><a href="javascript:;">排期展示</a></li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+	<!-- 影院汇总列表 -->
+	<div class="cinema-area">
+		<div class="block-title ra-title">
+			<span>汇总统计</span>
+			<div class="quick-btn fr">
+				<input type="hidden" id="queryDateEndHid" value="" />
+				<script type="text/javascript">document.getElementById("queryDateEndHid").value = getCurDate();</script>
+
+				<label class="cutoff-date fl">查询日期：</label>
+				<div style="display: inline-block;">
+					<div class="time_search user-set-date fl">
+						<input id="queryDateStart" class="Wdate topFiveFilmTime" value="" onFocus="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, position:{left:-15}, maxDate:'#F{$dp.$D(\'queryDateEndHid\', {d:-1})}', onpicked:handleQueryDateStart})">
+						<input class="sh" type="button">
+						<script type="text/javascript">document.getElementById("queryDateStart").value = setDateStrByDate(getCurDate(), -1);</script>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="desp-line">—</div>
+				<div style="display: inline-block;">
+					<div class="time_search user-set-date fl">
+						<input id="queryDateEnd" class="Wdate topFiveFilmTime" value="" onFocus="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, position:{left:-15}, minDate:'#F{$dp.$D(\'queryDateStart\')}', maxDate:'#F{$dp.$D(\'queryDateEndHid\')}', onpicked:handleQueryDateEnd})">
+						<input class="sh" type="button">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="block-cnt">
+			<table id="cinemaBatchTotalTbl" class="table table-bordered">
+				<thead>
+					<th>影院名称</th>
+					<th>实际排片票房</th>
+					<th>参考排片票房</th>
+					<th>票房差额</th>					
+				</thead>
+				<tr>
+					<td>奥斯卡广百</td>
+					<td>
+						<span>2205</span>						
+					</td>
+					<td>
+						<span>1420</span>
+					</td>
+					<td onmouseenter="showClickLayer(this);" style="color: #f30;">
+						<span class="td-num">
+							587
+							<img class="img-arrow" src="images/up.png">
+						</span>
+						<div class="click-check" onmouseleave="hideClickLayerSelf(this);" onclick="handleClickLayerLoadData(this, 534);" data="0" style="display: none;">点击查看</div>
+					</td>					
+				</tr>
+				<!-- <tr><td colspan="4"><center><img src='images/loading.gif' /></center></td></tr> -->
+			</table>
+		</div>
+	</div>
+	<!-- 影院列表 -->
+
+	<!-- 票房差额明细 弹出框 -->
+	<div class="modal sch-box" id="difBODetailModal">
+		<div class="modal-header">
+			<!-- 预加载数据的影院ID -->
+			<a class="close" data-dismiss="modal" onclick="closeCreateLayer(this, event);">×</a>
+			<h3 id="schTitle"><center>票房差额明细</center></h3>
+		</div>
+
+		<div class="modal-body sch-body">
+			<table id="cinemaBatchDetailTbl" class="table table-bordered">
+				<thead>
+					<th>影院名称</th>
+					<th>实际排片票房</th>
+					<th>参考排片票房</th>
+					<th>票房差额</th>				
+					<th>评分</th>				
+					<th>票房日期</th>				
+				</thead>
+				<tr>
+					<td>奥斯卡广百</td>
+					<td>
+						<span>2205</span>						
+					</td>
+					<td>
+						<span>1420</span>
+					</td>
+					<td>74</td>					
+				</tr>
+				<!-- <tr><td colspan="6"><center><img src='images/loading.gif' /></center></td></tr> -->
+			</table>
+		</div>
+		
+		<div class="modal-footer">
+			<a href="javascript:;" class="btn btn-default" data-dismiss="modal" onclick="closeCreateLayer(this, event);">关闭</a>
+		</div>
+	</div>
+	<!-- 票房差额明细 弹出框 -->
+</div>
+
+<script type="text/javascript" src="scripts/cinema-group-total/cinema-group-total.js"></script>
+<script type="text/javascript">
+	// initCinemaBoxOfficeMng($("#queryDateStart").val(), $("#queryDateEnd").val());
+</script>

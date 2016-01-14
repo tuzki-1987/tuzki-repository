@@ -1,0 +1,110 @@
+<!-- 参考排片 加载页 -->
+<link rel="stylesheet" type="text/css" href="css/compare-detail/compare-detail.css" />
+
+<div class="container-fluid">
+	<!-- 导航菜单 --
+	<div class="masthead">
+        <nav>
+          	<ul class="nav nav-justified">
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">影院票房上传</a></li>
+	            <li><a href="javascript:;" onclick="handleClickCinemaMenu(this);">系统排期生成</a></li>
+	            <li class="active"><a href="javascript:;" onclick="handleClickCinemaMenu(this);">票房明细比较</a></li>
+	            <li class="dropdown">
+	            	<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">排期展示</a>
+	            	<ul class="dropdown-menu sch-sub-nav">
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">排期展示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅显示</a></li>
+			            <li><a href="javascript:;" onclick="handleClickSchSubNav(this);">按影厅名称显示</a></li>
+		          	</ul>
+	            </li>
+          	</ul>
+        </nav>
+    </div>
+    <!-- 导航菜单 -->
+
+    <!-- 页面内容区 -->
+	<div class="div-box">
+		<!-- 排期汇总数据 -->
+		<div class="sche-list-area">
+			<div class="block-title ra-title">
+				<span>排期汇总结果</span>
+				<span id="schDate" class="sch-date" style="color: #f98a0f;  font-size: 14px;"></span>
+				<!-- <div class="quick-btn fr">
+					<label class="cutoff-date fl">查询日期：</label>
+					<div class="time_search user-set-date fl">
+						<input id="showDate" class="Wdate topFiveFilmTime" value="" onclick="WdatePicker({qsEnabled:false, isShowClear:false, isShowOK:false, isShowToday:false, readOnly:true, position:{left:-15}, maxDate:'%y-%M-%d', onpicked:querySchTotalResult})">
+						<input class="sh" type="button">
+						<script type="text/javascript">document.getElementById("showDate").value = getCurDate();</script>
+					</div>
+				</div> -->
+			</div>
+
+			<div class="block-cnt">
+				<!-- 排期汇总结果 -->
+				<div id="totalDataArea" class="sch-result-area">
+					<div class="show-sch-data-area">
+						<div class="block-title">
+							<!-- <span>黄金时段场次统计</span> -->
+							<!-- 选项卡标签 -->
+							<div class="btn-group show-analysis-data-label" role="group">
+								<button type="button" class="btn btn-default analysis-btn-label active">全天排期结果</button>
+								<button type="button" class="btn btn-default analysis-btn-label">黄金时段排期</button>
+								<button type="button" class="btn btn-default analysis-btn-label">非黄金时段排期</button>
+							</div>
+							<!-- 选项卡标签 -->
+						</div>
+
+						<div class="block-cnt">
+							<!-- 全时段 -->
+							<table id="alldaySchTbl" class="table table-striped sch-total-tbl allday-tbl" cellspacing="0" cellpadding="0" border="0">
+								<thead>
+									<tr id="allday_sch_data_title">
+										<th>影片名称</th>
+										<th><center>场次</center></th>
+										<th><center>场次比率</center></th>
+										<th><center>场均票房</center></th>
+										<th><center>可达票房</center></th>
+									</tr>
+								</thead>
+							</table>
+							<!-- 全时段 -->
+
+							<!-- 黄金时段/非黄金时段 -->
+							<table id="otherTbl" class="table table-striped sch-total-tbl goldgen-tbl" cellspacing="0" cellpadding="0" border="0">
+								<thead>
+									<tr id="gold_sch_data_title">
+										<th>影片名称</th>
+										<th><center>场次</center></th>
+										<th><center>场均票房</center></th>
+										<th><center>可达票房</center></th>
+									</tr>
+								</thead>
+								<!-- <tr>
+									<td colspan="4">
+										<div>
+											<img src='images/tip.png' width='80' />
+											<span class='tip-text-nodata fs20 clr8'>暂无数据，您可在上传票房后查看</span>
+										</div>
+									</td>
+								</tr> -->
+							</table>
+							<!-- 黄金时段/非黄金时段 -->
+						</div>
+					</div>
+				</div>
+				<!-- 排期汇总结果 -->
+			</div>
+		</div>
+		<!-- 排期汇总数据 -->
+		
+	</div>
+	<!-- 页面内容区 -->
+</div>
+
+<script type="text/javascript" src="scripts/sch-total-group/sch-total.js"></script>
+<script type="text/javascript">
+	var curCinemaId = $("#curCinemaID").val();
+	var showDate = $("#queryDate").val();
+
+	// showSchTotalResult(curCinemaId, showDate, 0);
+</script>
