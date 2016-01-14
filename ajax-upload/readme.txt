@@ -1,4 +1,4 @@
-最近工作中有用到异步上传的部分，在网上找了ajaxupload.js做的，使用中遇到了几个问题，其中最纠结的一个是后台返回json串后，IE默认下载的问题。
+﻿最近工作中有用到异步上传的部分，在网上找了ajaxupload.js做的，使用中遇到了几个问题，其中最纠结的一个是后台返回json串后，IE默认下载的问题。
 现在把这几个问题及解决办法总结如下：
 
 平台：win8
@@ -31,3 +31,5 @@ uploadHttpData 方法是处理和返回由后台传回来的数据的，处理�
 
 【重要】4、后台部分
 response.setContentType("text/plain");
+
+访问地址：http://htmlpreview.github.io/?https://github.com/tuzki-1987/tuzki-repository/blob/master/ajax-upload/upload.html
