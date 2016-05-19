@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>条形图 饼图 混合示例</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style type="text/css">
+			p{
+				background: -webkit-linear-gradient(#038ab1, #026C91, #038ab1);
+			    background: -o-linear-gradient(#038ab1, #026C91, #038ab1);
+			    background: -moz-linear-gradient(#038ab1, #026C91, #038ab1);
+			    background: linear-gradient(#038ab1, #026C91, #038ab1);
+			    border: 1px solid #03799b;
+			    -khtml-border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				border-radius: 4px;
+			    height: 40px;
+				margin: 30px 0;
+				text-align: center;
+			}
+			.spline{
+				border-style: solid;
+				border-width: 1px;
+				border-color: #3085be;
+				display: inline-block;
+				height: 38px;
+				line-height: 37px;
+				font-size: 18px;
+				font-weight: bold;
+				color: #ffffff;
+				margin: 0 auto;
+				padding: 0 18px;
+				/* 设置背景的动画效果 */
+				transition: background 1s;	/* 指定动画用于background属性，时长为1秒 */
+				-moz-transition: background 1s;
+				-webkit-transition: background 1s;
+				-o-transition: background 1s;
+				text-decoration: none;
+				width: 160px;
+			}
+			.current{
+				background: -webkit-linear-gradient(#025875, #026C91, #025875);
+			    background: -o-linear-gradient(#025875, #026C91, #025875);
+			    background: -moz-linear-gradient(#025875, #026C91, #025875);
+			    background: linear-gradient(#025875, #026C91, #025875);
+				border: 1px solid #3085be;
+			    -khtml-border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				border-radius: 4px;
+				color: #ff0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--大盘排期数据-->
+		<div id="marketSch" class="tab-pane in active">
+			<div class="table-responsive">
+				<div>
+					<button onclick="getMarketSch(0);">2016-04-28</button>
+					<button onclick="getMarketSch(1);">2016-05-02</button>
+					<button onclick="getMarketSch(2);">2016-05-10</button>
+				</div>
+				<div id="scheduleContainer" class="container market-container"><!--图表展示容器--></div>
+			</div>
+		</div>
+
+		<p><a href="javascript:;" class="spline current">【这里是分隔线】</a></p>
+
+		<!--实时大盘票房-->
+		<div id="marketBoxOffice" class="tab-pane">
+			<div class="table-responsive">
+				<div id="boxOfficeContainer" class="container"><!--图表展示容器--></div>
+			</div>
+			<p style="line-height: 40px; color: #fff;">In comparison, Highchart is not good, or my question.</p>
+		</div>
+
+		<script type="text/javascript" src="script/lib/jquery-1.7.2.min.js"></script>
+
+		<!-- highcharts scripts -->
+		<script type="text/javascript" src="script/lib/highcharts.js"></script>
+		<!-- echarts scripts -->
+		<script type="text/javascript" src="script/lib/echarts.min.js"></script>
+
+		<!-- page scripts -->
+		<script type="text/javascript" src="script/monitor_home.js"></script>
+		<script type="text/javascript" src="script/monitor_home_charts_bar.js"></script>
+		<script type="text/javascript" src="script/monitor_home_charts_hh.js"></script>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+body{
+	margin: 20px;
+}
+
+.data-area{
+	border: 1px solid #ddd;
+	border-top: 0;
+	padding: 20px;
+}
