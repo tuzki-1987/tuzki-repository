@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "专家详情",
+    "usingComponents": {
+        "message": "/component/message/message"
+    }
+}

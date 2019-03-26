@@ -27,7 +27,7 @@ define(["jquery"], function($) {
 			console.log("--------------- 发起ajax请求 ---------------");
 			console.log(options);
 
-			var urlDomain = "http://123.57.37.121/cms/",
+			var urlDomain = "",
 				type = options.method || "POST",
 				url = options.url.indexOf("://") == -1 ? urlDomain + options.url : options.url,
 				data = options.data || {},

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "耳迷走神经",
+    "usingComponents": {
+        "footbar": "/component/foot-bar/foot-bar",
+        "message": "/component/message/message"
+    }
+}
