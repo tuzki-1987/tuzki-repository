@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	font-family:"PingFang SC","Arial","Microsoft YaHei","sans-serif";
+	list-style:none;
+	outline:none;
+	font-weight:normal;
+}
+a{
+	text-decoration:none;
+	color:#fff;
+}
+.lf{ float:left;}
+.rt{ float:right;}
+body{ background-color:#000422;}
+.clear{ clear:both;}
+
+
+/*头部公共样式*/
+.head{
+	background:#375dcc url(../images/head.png) no-repeat top center;
+	height:50px;
+}
+.logo{ width:170px; padding:4px 0 0 3%;}
+.time{ width:440px;}
+.time p{
+	float:left;
+	padding-left:10%;
+	font-size:16px;
+	color:#fff;
+	line-height:50px;
+}
+.time .p01{ font-size:36px;}
