@@ -7,7 +7,7 @@
                 <p>{{day}}</p>
             </div>
             <div class="titlediv lf">
-                <span>{{str}}</span>
+                <span>{{titleTxt}}</span>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
 import tools from '../utils/globalTools.js'
 export default {
     name: 'Head',
-    props: ['str'],
+    props: ['titleTxt'],
     data() {
         return {
             time: tools.getNowTime(),

@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	font-family:"PingFang SC","Arial","Microsoft YaHei","sans-serif";
+	list-style:none;
+	outline:none;
+	font-weight:normal;
+}
+a{
+	text-decoration:none;
+	color:#fff;
+}
+.lf{ float:left;}
+.rt{ float:right;}
+body{ background-color:#000422;}
+.clear{ clear:both;}
+
+
+/*头部公共样式*/
+.head{
+	background:#375dcc url(../images/head.png) no-repeat top center;
+	height:50px;
+}
+.logo{ width:170px; padding:4px 0 0 3%;}
+.time{ width:440px;}
+.time p{
+	float:left;
+	padding-left:10%;
+	font-size:16px;
+	color:#fff;
+	line-height:50px;
+}
+.time .p01{ font-size:36px;}
+
+.tab02{ padding:20px 0 0 0; position:relative;}
+.h02{
+	font-size:16px;
+	color:#fff;
+	line-height:33px;
+	height:33px;
+	padding-left:40px;
+}
+.bg05{ background:url(../images/img01.png) no-repeat left center;}
+.bg05_01{ background:url(../images/img02.png) no-repeat left center;}
+.bg05_02{ background:url(../images/img03.png) no-repeat left center;}
+.bg05_03{ background:url(../images/img04.png) no-repeat left center;}
+.list03{ padding-top:25px; height:140px;}
+.list03 li{
+	height:28px;
+	color:#3f476b;
+	font-size:14px;
+	line-height:22px;
+	font-weight:bold;
+}
+.list03 li span{
+	color:#9193A7;
+	display:inline-block;
+	padding-left:5px;
+}
+.list03 li:hover,.list03 .current05,.list03 li:hover span,.list03 .current05 span{ color:#fff;}
+.p04{
+	background:url(../images/bg08.png) no-repeat top center;
+	width:97px;
+	height:90px;
+	text-align:center;
+	line-height:90px;
+	color:#fff;
+	font-size:24px;
+	position:absolute;
+	top:90px;
+	left:60%;
+}
+.box_00{ padding-top:8px;}
+.table02{
+	width:90%;
+	margin:15px auto;
+}
+.table02 tr th{
+	color:#9193a7;
+	font-size:16px;
+	border-bottom:1px dashed #3f476b;
+	padding-bottom:10px;
+}
+.table02 tr td{
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	height:40px;
+}
+.table02 tr td input[type=checkbox], .table02 tr th input[type=checkbox]{
+	vertical-align: text-bottom;
+}
+.table02 tr:hover td,.table02 .tr02 td{ color:#1db2eb;}
+
+.search{
+	width:92%;
+	margin:0 auto;
+	height:30px;
+}
+.textB01{
+	width:185px;
+	height:22px;
+	padding:4px 0 0 10px;
+	border:1px solid #9193a7;
+	background-color:#000422;
+	border-radius:2px;
+	margin:0 1%;
+}
+.text02{
+	background:none;
+	float:left;
+	height:18px;
+	color:#fff;
+	outline:none;
+	width:80%;
+	font-size:14px;
+	border-left:1px solid #1494c5;
+	padding-left:10px;
+}
+.text02::-webkit-input-placeholder{ color:#9193a7;}/*chrome,safari*/
+.text02::-moz-placeholder{color:#9193a7;}/*ff*/

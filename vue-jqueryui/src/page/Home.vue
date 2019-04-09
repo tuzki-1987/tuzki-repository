@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Head str='vue 使用 jQueryUI 的 Draggable/Droppable/Sortable'></Head>
+		<Head titleTxt='vue 使用 jQueryUI 的 Draggable/Droppable/Sortable'></Head>
 		<Dragdropsort></Dragdropsort>
 	</div>
 </template>
